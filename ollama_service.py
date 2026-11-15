@@ -65,10 +65,10 @@ class OllamaService:
         max_tokens: int = 1024,
     ) -> None:
         self.base_url = base_url.rstrip("/")
-        self.model_name = model_name
-        self.timeout_seconds = timeout_seconds
+        self.model_name = os.environ.get("OLLAMA_MODEL") or model_name
+        self.timeout_seconds = float(os.environ.get("OLLAMA_TIMEOUT") or timeout_seconds)
         self.temperature = temperature
-        self.max_tokens = max_tokens
+        self.max_tokens = int(os.environ.get("OLLAMA_MAX_TOKENS") or max_tokens)
 
     @staticmethod
     def inspect_hardware() -> Dict[str, Any]:

@@ -28,11 +28,25 @@
               emerald: '#059669',
               amber: '#D97706',
               rose: '#E11D48',
+              indigo: '#6366F1',
             }
           },
           boxShadow: {
-            'card': '0 1px 3px 0 rgba(15, 23, 42, 0.02), 0 1px 2px -1px rgba(15, 23, 42, 0.02)',
-            'card-hover': '0 4px 12px -2px rgba(15, 23, 42, 0.04), 0 2px 4px -2px rgba(15, 23, 42, 0.02)',
+            'none': 'none',
+            'card': 'none',
+            'card-hover': 'none',
+            'glow-coral': 'none',
+            'glow-emerald': 'none',
+            'glow-indigo': 'none',
+            'glow-amber': 'none',
+            'inner-glow': 'none',
+            'xs': 'none',
+            'sm': 'none',
+            'md': 'none',
+            'lg': 'none',
+            'xl': 'none',
+            '2xl': 'none',
+            '2xs': 'none',
           }
         }
       }
@@ -66,14 +80,16 @@
       min-height: 44px;
       min-width: 44px;
     }
+
     #currency-3d-viewport {
       position: relative;
       width: 100% !important;
       height: 380px;
-      background: radial-gradient(circle at 50% 45%, #FFFFFF 0%, #F1F5F9 70%, #E2E8F0 100%);
-      border-radius: 16px;
+      background: #F8FAFC;
+      border-radius: 12px;
       overflow: hidden;
       user-select: none;
+      border: 1px solid #E2E8F0;
     }
     @media (min-width: 640px) {
       #currency-3d-viewport { height: 440px; }
@@ -190,19 +206,29 @@
   </header>
 
   <!-- Main Landing Content Container -->
+  <!-- Ambient Atmospheric Lighting Glows -->
+  <div class="fixed inset-0 pointer-events-none overflow-hidden -z-10">
+    <div class="absolute -top-40 left-1/4 w-[650px] h-[650px] bg-gradient-to-br from-rose-400/12 via-indigo-500/8 to-transparent rounded-full blur-3xl transform -translate-x-1/2"></div>
+    <div class="absolute top-[35%] -right-40 w-[600px] h-[600px] bg-gradient-to-bl from-emerald-400/10 via-teal-400/8 to-transparent rounded-full blur-3xl"></div>
+    <div class="absolute top-[70%] -left-32 w-[550px] h-[550px] bg-gradient-to-tr from-indigo-500/10 via-sky-400/8 to-transparent rounded-full blur-3xl"></div>
+  </div>
+
   <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 sm:py-12 flex-1 w-full space-y-16 sm:space-y-24">
 
     <!-- ========================================================================= -->
     <!-- 1. HERO SECTION — WHAT FOREX AI IS                                        -->
     <!-- ========================================================================= -->
-    <section id="overview">
+    <section id="overview" class="relative">
       <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center">
         
         <!-- Left: Editorial Value Proposition (5 Cols) -->
         <div class="lg:col-span-5 space-y-5">
-          <div class="inline-flex items-center gap-2 px-3 py-1 bg-slate-100 rounded-full text-[11px] font-mono text-slate-700">
-            <span class="w-2 h-2 rounded-full bg-[#059669]"></span>
-            <span class="font-bold">PYTORCH DRL ENSEMBLE</span>
+          <div class="inline-flex items-center gap-2 px-3.5 py-1.5 bg-gradient-to-r from-emerald-500/10 via-white to-slate-50 border border-emerald-500/25 rounded-full text-[11px] font-mono text-slate-800 shadow-xs">
+            <span class="relative flex h-2 w-2">
+              <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
+              <span class="relative inline-flex rounded-full h-2 w-2 bg-emerald-500"></span>
+            </span>
+            <span class="font-bold tracking-tight text-emerald-950">PYTORCH DRL ENSEMBLE</span>
             <span class="text-slate-300">•</span>
             <span class="text-slate-500">OANDA REST v20</span>
           </div>
@@ -216,31 +242,37 @@
           </p>
 
           <div class="flex flex-wrap items-center gap-3 pt-2">
-            <a href="/dashboard" class="px-6 py-3.5 bg-[#FF5353] hover:bg-[#E03E3E] text-white font-bold text-xs uppercase tracking-wider rounded-full shadow-xs hover:shadow-sm transition-all inline-flex items-center gap-2 min-h-[44px] cursor-pointer">
+            <a href="/dashboard" class="px-6 py-3.5 bg-gradient-to-r from-[#FF5353] to-[#E03E3E] hover:from-[#E03E3E] hover:to-[#C53030] text-white font-bold text-xs uppercase tracking-wider rounded-full shadow-card hover:shadow-glow-coral hover:-translate-y-0.5 transition-all inline-flex items-center gap-2 min-h-[44px] cursor-pointer">
               <span>Launch Terminal</span>
               <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"/></svg>
             </a>
-            <a href="#how-it-works" class="px-5 py-3.5 bg-slate-100 hover:bg-slate-200 text-slate-700 font-bold text-xs uppercase tracking-wider rounded-full transition-colors inline-flex items-center gap-1.5 min-h-[44px]">
+            <a href="#how-it-works" class="px-5 py-3.5 bg-white hover:bg-slate-50 border border-slate-200/90 text-slate-700 font-bold text-xs uppercase tracking-wider rounded-full shadow-xs hover:border-slate-300 hover:shadow-sm transition-all inline-flex items-center gap-1.5 min-h-[44px]">
               <span>System Workflow</span>
             </a>
           </div>
 
           <!-- Feature badges strip -->
-          <div class="pt-4 grid grid-cols-2 gap-3 text-xs font-mono text-slate-600">
-            <div>
-              <span class="text-slate-400 block text-[10px] uppercase">Execution Cadence</span>
-              <strong class="text-slate-800">Hourly Candle Close (:01 UTC)</strong>
+          <div class="pt-4 grid grid-cols-2 gap-3 text-xs font-mono">
+            <div class="p-3.5 rounded-2xl bg-white/90 border border-slate-200/90 shadow-xs hover:border-slate-300 hover:shadow-sm transition-all">
+              <span class="text-slate-400 block text-[10px] uppercase font-bold tracking-wider">Execution Cadence</span>
+              <strong class="text-slate-900 flex items-center gap-1.5 mt-1">
+                <span class="w-1.5 h-1.5 rounded-full bg-indigo-500"></span>
+                Hourly Close (:01 UTC)
+              </strong>
             </div>
-            <div>
-              <span class="text-slate-400 block text-[10px] uppercase">Order Protection</span>
-              <strong class="text-emerald-700">Native Server-Side Brackets</strong>
+            <div class="p-3.5 rounded-2xl bg-white/90 border border-emerald-200/80 shadow-xs hover:border-emerald-300 hover:shadow-sm transition-all">
+              <span class="text-slate-400 block text-[10px] uppercase font-bold tracking-wider">Order Protection</span>
+              <strong class="text-emerald-700 flex items-center gap-1.5 mt-1">
+                <span class="w-1.5 h-1.5 rounded-full bg-emerald-500 animate-pulse"></span>
+                Server-Side Brackets
+              </strong>
             </div>
           </div>
         </div>
 
         <!-- Right: Interactive 3D Currency Network (7 Cols) -->
-        <div class="lg:col-span-7 space-y-3">
-          <div class="border border-slate-200 shadow-sm relative overflow-hidden rounded-2xl bg-white" id="currency-3d-viewport">
+        <div class="lg:col-span-7 space-y-4">
+          <div class="relative overflow-hidden rounded-2xl bg-white" id="currency-3d-viewport">
             <canvas id="currency-network-canvas" class="w-full h-full block"></canvas>
             <canvas id="fallback-2d-canvas" class="hidden absolute inset-0 w-full h-full block"></canvas>
 
@@ -248,37 +280,37 @@
             <div class="absolute top-3 inset-x-3 flex items-center justify-between gap-2 z-10 pointer-events-none">
               <!-- Left: Badges -->
               <div class="flex items-center gap-1.5 pointer-events-auto">
-                <span class="px-2.5 py-1 text-[10px] font-mono uppercase font-bold bg-white/95 border border-slate-200 rounded-md text-slate-700 shadow-xs flex items-center gap-1.5">
+                <span class="px-2.5 py-1 text-[10px] font-mono uppercase font-bold bg-white/95 backdrop-blur-md border border-slate-200/80 rounded-lg text-slate-700 shadow-xs flex items-center gap-1.5">
                   <span class="w-1.5 h-1.5 rounded-full bg-[#059669] animate-pulse"></span>
                   <span class="hidden sm:inline">3D PORTFOLIO TOPOLOGY</span>
                   <span class="sm:hidden">3D TOPOLOGY</span>
                 </span>
-                <span class="hidden md:inline-block px-2.5 py-1 text-[10px] font-mono uppercase font-bold bg-[#0B0F17] text-white rounded-md shadow-xs">
+                <span class="hidden md:inline-block px-2.5 py-1 text-[10px] font-mono uppercase font-bold bg-[#0B0F17] text-white rounded-lg shadow-xs border border-slate-800">
                   PYTORCH DRL MESH
                 </span>
               </div>
 
               <!-- Right: Interactive 3D Camera & Control Toolbar -->
               <div class="flex items-center gap-1.5 pointer-events-auto">
-                <button type="button" id="btn-toggle-orbit" onclick="toggleAutoOrbit()" title="Toggle Auto-Rotation" class="px-2 py-1 text-[10px] font-mono font-semibold bg-white/95 hover:bg-slate-100 border border-slate-200 rounded-md text-slate-700 shadow-xs cursor-pointer flex items-center gap-1 transition-colors">
+                <button type="button" id="btn-toggle-orbit" onclick="toggleAutoOrbit()" title="Toggle Auto-Rotation" class="px-2.5 py-1 text-[10px] font-mono font-semibold bg-white/95 backdrop-blur-md hover:bg-slate-100 border border-slate-200/80 rounded-lg text-slate-700 shadow-xs cursor-pointer flex items-center gap-1.5 transition-colors">
                   <span id="orbit-indicator" class="w-1.5 h-1.5 rounded-full bg-emerald-500"></span>
                   <span id="label-orbit" class="hidden xs:inline">ORBIT ON</span>
                   <span class="xs:hidden">ORBIT</span>
                 </button>
-                <button type="button" onclick="reset3DCamera()" title="Reset Camera Perspective" class="px-2 py-1 text-[10px] font-mono font-semibold bg-white/95 hover:bg-slate-100 border border-slate-200 rounded-md text-slate-700 shadow-xs cursor-pointer flex items-center gap-1 transition-colors">
+                <button type="button" onclick="reset3DCamera()" title="Reset Camera Perspective" class="px-2.5 py-1 text-[10px] font-mono font-semibold bg-white/95 backdrop-blur-md hover:bg-slate-100 border border-slate-200/80 rounded-lg text-slate-700 shadow-xs cursor-pointer flex items-center gap-1 transition-colors">
                   <svg class="w-3 h-3 text-slate-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15"/></svg>
                   <span class="hidden sm:inline">RESET</span>
                 </button>
-                <div class="hidden sm:flex items-center bg-white/95 border border-slate-200 rounded-md shadow-xs p-0.5 text-[9px] font-mono font-bold">
-                  <button type="button" onclick="setPresetView('overview')" class="px-1.5 py-0.5 rounded text-slate-700 hover:text-[#FF5353] transition-colors cursor-pointer" title="Default 3D View">3D</button>
-                  <button type="button" onclick="setPresetView('radar')" class="px-1.5 py-0.5 rounded text-slate-700 hover:text-[#FF5353] transition-colors cursor-pointer" title="Top-Down Radar">TOP</button>
-                  <button type="button" onclick="setPresetView('isometric')" class="px-1.5 py-0.5 rounded text-slate-700 hover:text-[#FF5353] transition-colors cursor-pointer" title="Isometric Corridor">ISO</button>
+                <div class="hidden sm:flex items-center bg-white/95 backdrop-blur-md border border-slate-200/80 rounded-lg shadow-xs p-0.5 text-[9px] font-mono font-bold">
+                  <button type="button" onclick="setPresetView('overview')" class="px-2 py-0.5 rounded text-slate-700 hover:text-[#FF5353] transition-colors cursor-pointer" title="Default 3D View">3D</button>
+                  <button type="button" onclick="setPresetView('radar')" class="px-2 py-0.5 rounded text-slate-700 hover:text-[#FF5353] transition-colors cursor-pointer" title="Top-Down Radar">TOP</button>
+                  <button type="button" onclick="setPresetView('isometric')" class="px-2 py-0.5 rounded text-slate-700 hover:text-[#FF5353] transition-colors cursor-pointer" title="Isometric Corridor">ISO</button>
                 </div>
               </div>
             </div>
 
             <!-- Dynamic 3D Node Hover Tooltip Card -->
-            <div id="node-3d-tooltip" class="absolute pointer-events-none opacity-0 transition-opacity duration-150 bg-slate-900/95 text-white border border-slate-700 rounded-lg p-2.5 text-[11px] font-mono shadow-xl z-20 w-52">
+            <div id="node-3d-tooltip" class="absolute pointer-events-none opacity-0 transition-opacity duration-150 bg-slate-900/95 backdrop-blur-md text-white border border-slate-700/80 rounded-xl p-3 text-[11px] font-mono shadow-2xl z-20 w-56">
               <div class="flex items-center justify-between border-b border-slate-700/80 pb-1 mb-1.5">
                 <strong id="tooltip-pair-name" class="text-white text-xs font-bold">EUR / USD</strong>
                 <span id="tooltip-pair-policy-badge" class="px-1.5 py-0.5 rounded text-[9px] font-bold bg-[#FF5353] text-white">MOMENTUM</span>
@@ -292,14 +324,14 @@
 
             <!-- Bottom Telemetry & Navigation Strip -->
             <div class="absolute bottom-3 inset-x-3 flex items-center justify-between gap-2 z-10 pointer-events-none text-[10px] font-mono">
-              <div class="flex items-center gap-1.5 bg-white/95 px-2.5 py-1 rounded-md border border-slate-200 text-slate-600 shadow-xs">
+              <div class="flex items-center gap-1.5 bg-white/95 backdrop-blur-md px-2.5 py-1 rounded-lg border border-slate-200/80 text-slate-600 shadow-xs">
                 <span class="w-1.5 h-1.5 rounded-full bg-[#059669]"></span>
                 <span class="font-bold text-slate-800 hidden sm:inline">4-PAIR MESH ACTIVE</span>
                 <span class="font-bold text-slate-800 sm:hidden">ACTIVE</span>
                 <span class="text-slate-300 hidden sm:inline">•</span>
                 <span class="text-slate-500 hidden sm:inline">60 FPS</span>
               </div>
-              <div class="text-slate-500 bg-white/95 px-2.5 py-1 rounded-md border border-slate-200 shadow-xs">
+              <div class="text-slate-500 bg-white/95 backdrop-blur-md px-2.5 py-1 rounded-lg border border-slate-200/80 shadow-xs">
                 <span class="hidden sm:inline">DRAG TO ORBIT • SCROLL/PINCH TO ZOOM • TAP NODES</span>
                 <span class="sm:hidden">DRAG • PINCH • TAP</span>
               </div>
@@ -307,44 +339,48 @@
           </div>
 
           <!-- Pair Quick Selector HUD with Corridor Telemetry Cards -->
-          <div class="p-4 bg-slate-50 border border-slate-200 rounded-2xl space-y-3 text-xs font-mono">
-            <div class="flex flex-wrap items-center justify-between border-b border-slate-200 pb-2.5 gap-2">
+          <div class="p-4 sm:p-5 bg-gradient-to-b from-white to-slate-50/90 border border-slate-200/90 rounded-3xl shadow-card backdrop-blur-sm space-y-3.5 text-xs font-mono relative overflow-hidden">
+            <!-- Subtle Top Rainbow Line -->
+            <div class="absolute top-0 inset-x-0 h-0.5 bg-gradient-to-r from-rose-500 via-indigo-500 to-emerald-500"></div>
+
+            <div class="flex flex-wrap items-center justify-between border-b border-slate-200/80 pb-2.5 gap-2">
               <div>
-                <span class="text-slate-400 font-bold uppercase text-[10px] block">Active Currency Corridor</span>
+                <span class="text-slate-400 font-bold uppercase text-[10px] block tracking-wider">Active Currency Corridor</span>
                 <span class="text-slate-900 font-bold text-sm" id="hud-pair-title">USD / JPY Corridor — Macro Trend & Interest Differential</span>
               </div>
               <div class="flex items-center gap-2">
-                <span class="px-2 py-0.5 rounded bg-emerald-50 text-emerald-700 border border-emerald-200 text-[10px] font-bold" id="hud-pair-status">
+                <span class="px-2.5 py-1 rounded-lg bg-emerald-50 text-emerald-700 border border-emerald-200/80 text-[10px] font-bold flex items-center gap-1.5 shadow-2xs" id="hud-pair-status">
+                  <span class="w-1.5 h-1.5 rounded-full bg-emerald-500 animate-pulse"></span>
                   ACTIVE INFERENCE
                 </span>
-                <span class="text-slate-400 text-[10px]" id="hud-pair-timeframe">H1 (:01 UTC)</span>
+                <span class="text-slate-500 text-[10px] font-medium" id="hud-pair-timeframe">H1 (:01 UTC)</span>
               </div>
             </div>
 
             <!-- 4 Currency Corridor Buttons -->
-            <div class="grid grid-cols-2 sm:grid-cols-4 gap-2">
-              <button type="button" onclick="selectCurrencyPair('EURUSD')" id="btn-node-EURUSD" class="py-2.5 px-3 text-left rounded-xl bg-white border border-slate-200 hover:border-[#FF5353] font-bold text-slate-700 transition-all cursor-pointer shadow-xs">
+            <div class="grid grid-cols-2 sm:grid-cols-4 gap-2.5">
+              <button type="button" onclick="selectCurrencyPair('EURUSD')" id="btn-node-EURUSD" class="py-2.5 px-3 text-left rounded-xl bg-white border border-slate-200/90 hover:border-[#FF5353] font-bold text-slate-700 transition-all cursor-pointer shadow-xs hover:shadow-sm">
                 <div class="flex items-center justify-between mb-0.5">
                   <span class="font-extrabold text-xs">EUR/USD</span>
                   <span class="w-2 h-2 rounded-full bg-[#FF5353]"></span>
                 </div>
                 <div class="text-[10px] text-slate-500 font-normal truncate">Mean Reversion</div>
               </button>
-              <button type="button" onclick="selectCurrencyPair('GBPUSD')" id="btn-node-GBPUSD" class="py-2.5 px-3 text-left rounded-xl bg-white border border-slate-200 hover:border-[#059669] font-bold text-slate-700 transition-all cursor-pointer shadow-xs">
+              <button type="button" onclick="selectCurrencyPair('GBPUSD')" id="btn-node-GBPUSD" class="py-2.5 px-3 text-left rounded-xl bg-white border border-slate-200/90 hover:border-[#059669] font-bold text-slate-700 transition-all cursor-pointer shadow-xs hover:shadow-sm">
                 <div class="flex items-center justify-between mb-0.5">
                   <span class="font-extrabold text-xs">GBP/USD</span>
                   <span class="w-2 h-2 rounded-full bg-[#059669]"></span>
                 </div>
                 <div class="text-[10px] text-slate-500 font-normal truncate">Volatility Breakout</div>
               </button>
-              <button type="button" onclick="selectCurrencyPair('USDJPY')" id="btn-node-USDJPY" class="py-2.5 px-3 text-left rounded-xl bg-white border-2 border-[#FF5353] font-bold text-[#FF5353] transition-all cursor-pointer shadow-xs">
+              <button type="button" onclick="selectCurrencyPair('USDJPY')" id="btn-node-USDJPY" class="py-2.5 px-3 text-left rounded-xl bg-white border-2 border-[#FF5353] font-bold text-[#FF5353] transition-all cursor-pointer shadow-xs ring-2 ring-red-50">
                 <div class="flex items-center justify-between mb-0.5">
                   <span class="font-extrabold text-xs">USD/JPY</span>
                   <span class="w-2 h-2 rounded-full bg-[#FF5353]"></span>
                 </div>
                 <div class="text-[10px] text-slate-500 font-normal truncate">Macro Trend</div>
               </button>
-              <button type="button" onclick="selectCurrencyPair('AUDUSD')" id="btn-node-AUDUSD" class="py-2.5 px-3 text-left rounded-xl bg-white border border-slate-200 hover:border-[#D97706] font-bold text-slate-700 transition-all cursor-pointer shadow-xs">
+              <button type="button" onclick="selectCurrencyPair('AUDUSD')" id="btn-node-AUDUSD" class="py-2.5 px-3 text-left rounded-xl bg-white border border-slate-200/90 hover:border-[#D97706] font-bold text-slate-700 transition-all cursor-pointer shadow-xs hover:shadow-sm">
                 <div class="flex items-center justify-between mb-0.5">
                   <span class="font-extrabold text-xs">AUD/USD</span>
                   <span class="w-2 h-2 rounded-full bg-[#D97706]"></span>
@@ -355,21 +391,21 @@
 
             <!-- Corridor Micro-Telemetry Strip -->
             <div class="grid grid-cols-2 sm:grid-cols-4 gap-2 pt-1 text-[11px]">
-              <div class="bg-white/95 p-2 rounded-lg shadow-xs">
-                <span class="text-slate-400 block text-[9px] uppercase">Typical Spread</span>
-                <strong class="text-slate-800" id="hud-telemetry-spread">1.0 – 1.4 pips</strong>
+              <div class="bg-white/95 border border-slate-200/80 p-2.5 rounded-xl shadow-2xs hover:border-slate-300 transition-colors">
+                <span class="text-slate-400 block text-[9px] uppercase font-bold tracking-wider">Typical Spread</span>
+                <strong class="text-slate-900" id="hud-telemetry-spread">1.0 – 1.4 pips</strong>
               </div>
-              <div class="bg-white/95 p-2 rounded-lg shadow-xs">
-                <span class="text-slate-400 block text-[9px] uppercase">Execution Policy</span>
-                <strong class="text-slate-800" id="hud-telemetry-policy">Macro Trend Differential</strong>
+              <div class="bg-white/95 border border-slate-200/80 p-2.5 rounded-xl shadow-2xs hover:border-slate-300 transition-colors">
+                <span class="text-slate-400 block text-[9px] uppercase font-bold tracking-wider">Execution Policy</span>
+                <strong class="text-slate-900" id="hud-telemetry-policy">Macro Trend Differential</strong>
               </div>
-              <div class="bg-white/95 p-2 rounded-lg shadow-xs">
-                <span class="text-slate-400 block text-[9px] uppercase">Order Protection</span>
+              <div class="bg-white/95 border border-emerald-200/80 p-2.5 rounded-xl shadow-2xs hover:border-emerald-300 transition-colors">
+                <span class="text-slate-400 block text-[9px] uppercase font-bold tracking-wider">Order Protection</span>
                 <strong class="text-emerald-700">Native Server Brackets</strong>
               </div>
-              <div class="bg-white/95 p-2 rounded-lg shadow-xs">
-                <span class="text-slate-400 block text-[9px] uppercase">Model Checkpoint</span>
-                <strong class="text-slate-800 font-mono">PyTorch H1 (.pt)</strong>
+              <div class="bg-white/95 border border-slate-200/80 p-2.5 rounded-xl shadow-2xs hover:border-slate-300 transition-colors">
+                <span class="text-slate-400 block text-[9px] uppercase font-bold tracking-wider">Model Checkpoint</span>
+                <strong class="text-slate-900 font-mono">PyTorch H1 (.pt)</strong>
               </div>
             </div>
           </div>
@@ -394,59 +430,79 @@
 
       <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-5">
         
-        <!-- Card 1 -->
-        <div class="bg-white p-6 rounded-2xl border border-slate-100 shadow-card space-y-3">
-          <div class="w-10 h-10 rounded-xl bg-slate-100 flex items-center justify-center text-slate-800 font-bold font-mono text-sm">
-            01
+        <!-- Card 1: Linux Daemon (Coral Theme) -->
+        <div class="group relative bg-white/95 backdrop-blur-sm p-6 rounded-2xl border border-slate-200/90 shadow-card hover:shadow-card-hover hover:-translate-y-1 transition-all duration-300 overflow-hidden space-y-3">
+          <div class="absolute top-0 inset-x-0 h-1 bg-gradient-to-r from-rose-500 to-amber-500"></div>
+          <div class="flex items-center justify-between">
+            <div class="w-10 h-10 rounded-xl bg-rose-50 border border-rose-100 text-[#FF5353] flex items-center justify-center font-bold font-mono text-sm group-hover:scale-105 transition-transform shadow-2xs">
+              01
+            </div>
+            <span class="text-[10px] font-mono text-slate-400 uppercase tracking-widest font-semibold">DAEMON</span>
           </div>
-          <h3 class="font-display font-bold text-slate-900 text-base">Headless Linux Daemon</h3>
+          <h3 class="font-display font-bold text-slate-900 text-base group-hover:text-[#FF5353] transition-colors">Headless Linux Daemon</h3>
           <p class="text-xs text-slate-600 leading-relaxed font-sans">
             Runs 24/5 on Linux cloud servers under systemd process supervision. Eliminates desktop operating system crashes, GUI rendering freezes, and local network drops.
           </p>
-          <div class="pt-2 text-[10px] font-mono text-emerald-700 font-semibold">
-            [ 24/5 CONTINUOUS RUNTIME ]
+          <div class="pt-2 text-[10px] font-mono text-emerald-700 font-semibold flex items-center gap-1.5">
+            <span class="w-1.5 h-1.5 rounded-full bg-emerald-500 animate-pulse"></span>
+            <span>24/5 CONTINUOUS RUNTIME</span>
           </div>
         </div>
 
-        <!-- Card 2 -->
-        <div class="bg-white p-6 rounded-2xl border border-slate-100 shadow-card space-y-3">
-          <div class="w-10 h-10 rounded-xl bg-slate-100 flex items-center justify-center text-slate-800 font-bold font-mono text-sm">
-            02
+        <!-- Card 2: Neural Policies (Indigo Theme) -->
+        <div class="group relative bg-white/95 backdrop-blur-sm p-6 rounded-2xl border border-slate-200/90 shadow-card hover:shadow-card-hover hover:-translate-y-1 transition-all duration-300 overflow-hidden space-y-3">
+          <div class="absolute top-0 inset-x-0 h-1 bg-gradient-to-r from-indigo-500 to-purple-500"></div>
+          <div class="flex items-center justify-between">
+            <div class="w-10 h-10 rounded-xl bg-indigo-50 border border-indigo-100 text-indigo-600 flex items-center justify-center font-bold font-mono text-sm group-hover:scale-105 transition-transform shadow-2xs">
+              02
+            </div>
+            <span class="text-[10px] font-mono text-slate-400 uppercase tracking-widest font-semibold">NEURAL</span>
           </div>
-          <h3 class="font-display font-bold text-slate-900 text-base">Specialized Neural Policies</h3>
+          <h3 class="font-display font-bold text-slate-900 text-base group-hover:text-indigo-600 transition-colors">Specialized Neural Policies</h3>
           <p class="text-xs text-slate-600 leading-relaxed font-sans">
             Rather than forcing a single parameter set across divergent currency behaviors, four independent PyTorch PPO policies evaluate rolling 128-bar temporal feature matrices.
           </p>
-          <div class="pt-2 text-[10px] font-mono text-emerald-700 font-semibold">
-            [ ISOLATED MULTI-MODEL ]
+          <div class="pt-2 text-[10px] font-mono text-emerald-700 font-semibold flex items-center gap-1.5">
+            <span class="w-1.5 h-1.5 rounded-full bg-emerald-500 animate-pulse"></span>
+            <span>ISOLATED MULTI-MODEL</span>
           </div>
         </div>
 
-        <!-- Card 3 -->
-        <div class="bg-white p-6 rounded-2xl border border-slate-100 shadow-card space-y-3">
-          <div class="w-10 h-10 rounded-xl bg-slate-100 flex items-center justify-center text-slate-800 font-bold font-mono text-sm">
-            03
+        <!-- Card 3: Server-Side Brackets (Emerald Theme) -->
+        <div class="group relative bg-white/95 backdrop-blur-sm p-6 rounded-2xl border border-slate-200/90 shadow-card hover:shadow-card-hover hover:-translate-y-1 transition-all duration-300 overflow-hidden space-y-3">
+          <div class="absolute top-0 inset-x-0 h-1 bg-gradient-to-r from-emerald-500 to-teal-500"></div>
+          <div class="flex items-center justify-between">
+            <div class="w-10 h-10 rounded-xl bg-emerald-50 border border-emerald-100 text-emerald-600 flex items-center justify-center font-bold font-mono text-sm group-hover:scale-105 transition-transform shadow-2xs">
+              03
+            </div>
+            <span class="text-[10px] font-mono text-slate-400 uppercase tracking-widest font-semibold">BRACKET</span>
           </div>
-          <h3 class="font-display font-bold text-slate-900 text-base">Server-Side Brackets</h3>
+          <h3 class="font-display font-bold text-slate-900 text-base group-hover:text-emerald-600 transition-colors">Server-Side Brackets</h3>
           <p class="text-xs text-slate-600 leading-relaxed font-sans">
             Stop-loss and take-profit tickets are attached directly inside the OANDA matching engine payload at order dispatch. Protection remains active even if server offline events occur.
           </p>
-          <div class="pt-2 text-[10px] font-mono text-emerald-700 font-semibold">
-            [ BROKER-ENFORCED SL/TP ]
+          <div class="pt-2 text-[10px] font-mono text-emerald-700 font-semibold flex items-center gap-1.5">
+            <span class="w-1.5 h-1.5 rounded-full bg-emerald-500 animate-pulse"></span>
+            <span>BROKER-ENFORCED SL/TP</span>
           </div>
         </div>
 
-        <!-- Card 4 -->
-        <div class="bg-white p-6 rounded-2xl border border-slate-100 shadow-card space-y-3">
-          <div class="w-10 h-10 rounded-xl bg-slate-100 flex items-center justify-center text-slate-800 font-bold font-mono text-sm">
-            04
+        <!-- Card 4: Macro Shield (Amber Theme) -->
+        <div class="group relative bg-white/95 backdrop-blur-sm p-6 rounded-2xl border border-slate-200/90 shadow-card hover:shadow-card-hover hover:-translate-y-1 transition-all duration-300 overflow-hidden space-y-3">
+          <div class="absolute top-0 inset-x-0 h-1 bg-gradient-to-r from-amber-500 to-orange-500"></div>
+          <div class="flex items-center justify-between">
+            <div class="w-10 h-10 rounded-xl bg-amber-50 border border-amber-100 text-amber-600 flex items-center justify-center font-bold font-mono text-sm group-hover:scale-105 transition-transform shadow-2xs">
+              04
+            </div>
+            <span class="text-[10px] font-mono text-slate-400 uppercase tracking-widest font-semibold">EMBARGO</span>
           </div>
-          <h3 class="font-display font-bold text-slate-900 text-base">Macro Blackout Shield</h3>
+          <h3 class="font-display font-bold text-slate-900 text-base group-hover:text-amber-600 transition-colors">Macro Blackout Shield</h3>
           <p class="text-xs text-slate-600 leading-relaxed font-sans">
             Integrated economic calendar polling freezes trade openings 30 minutes before and after scheduled high-impact events (NFP, CPI, Central Bank rate decisions).
           </p>
-          <div class="pt-2 text-[10px] font-mono text-emerald-700 font-semibold">
-            [ NEWS SLIPPAGE EMBARGO ]
+          <div class="pt-2 text-[10px] font-mono text-emerald-700 font-semibold flex items-center gap-1.5">
+            <span class="w-1.5 h-1.5 rounded-full bg-emerald-500 animate-pulse"></span>
+            <span>NEWS SLIPPAGE EMBARGO</span>
           </div>
         </div>
 
@@ -456,13 +512,13 @@
     <!-- ========================================================================= -->
     <!-- 3. MARKET COVERAGE — FOUR SUPPORTED CURRENCY PAIRS                        -->
     <!-- ========================================================================= -->
-    <section id="markets" class="bg-white border border-slate-100 rounded-3xl p-6 sm:p-10 shadow-card space-y-6">
+    <section id="markets" class="section-container rounded-3xl p-6 sm:p-10 shadow-card space-y-6">
       <div class="flex flex-col sm:flex-row sm:items-center justify-between pb-2 gap-2">
         <div>
           <span class="text-xs font-mono font-bold uppercase tracking-wider text-[#FF5353] block mb-1">Currency Matrix</span>
           <h2 class="text-2xl font-display font-extrabold text-slate-900">Supported Currency Pair Specifications</h2>
         </div>
-        <span class="text-xs font-mono text-slate-600 bg-slate-100 px-3 py-1 rounded-full self-start sm:self-auto font-medium">
+        <span class="text-xs font-mono text-slate-700 bg-white border border-slate-200 px-3.5 py-1.5 rounded-full self-start sm:self-auto font-bold shadow-2xs">
           4 LIQUID G10 CORRIDORS
         </span>
       </div>
@@ -470,10 +526,13 @@
       <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-5">
         
         <!-- EUR/USD -->
-        <div class="p-5 bg-slate-50 rounded-2xl space-y-3">
+        <div class="p-5 rounded-2xl border border-rose-200/90 bg-gradient-to-b from-rose-50/40 via-white to-slate-50/50 shadow-xs hover:border-rose-400 hover:shadow-md hover:-translate-y-0.5 transition-all duration-200 space-y-3">
           <div class="flex items-center justify-between pb-1">
-            <h3 class="font-display font-bold text-slate-900 text-base">EUR / USD</h3>
-            <span class="px-2 py-0.5 text-[10px] font-mono font-semibold bg-white text-slate-700 rounded-md shadow-xs">POLICY 01</span>
+            <h3 class="font-display font-bold text-slate-900 text-base flex items-center gap-1.5">
+              <span class="w-2 h-2 rounded-full bg-[#FF5353]"></span>
+              EUR / USD
+            </h3>
+            <span class="px-2 py-0.5 text-[10px] font-mono font-bold bg-rose-50 text-rose-700 border border-rose-200/80 rounded-md">POLICY 01</span>
           </div>
           <div class="space-y-1.5 text-xs font-mono text-slate-600">
             <div class="flex justify-between"><span>Session Depth:</span><strong class="text-slate-900">European / London</strong></div>
@@ -488,10 +547,13 @@
         </div>
 
         <!-- GBP/USD -->
-        <div class="p-5 bg-slate-50 rounded-2xl space-y-3">
+        <div class="p-5 rounded-2xl border border-emerald-200/90 bg-gradient-to-b from-emerald-50/40 via-white to-slate-50/50 shadow-xs hover:border-emerald-400 hover:shadow-md hover:-translate-y-0.5 transition-all duration-200 space-y-3">
           <div class="flex items-center justify-between pb-1">
-            <h3 class="font-display font-bold text-slate-900 text-base">GBP / USD</h3>
-            <span class="px-2 py-0.5 text-[10px] font-mono font-semibold bg-white text-slate-700 rounded-md shadow-xs">POLICY 02</span>
+            <h3 class="font-display font-bold text-slate-900 text-base flex items-center gap-1.5">
+              <span class="w-2 h-2 rounded-full bg-[#059669]"></span>
+              GBP / USD
+            </h3>
+            <span class="px-2 py-0.5 text-[10px] font-mono font-bold bg-emerald-50 text-emerald-700 border border-emerald-200/80 rounded-md">POLICY 02</span>
           </div>
           <div class="space-y-1.5 text-xs font-mono text-slate-600">
             <div class="flex justify-between"><span>Session Depth:</span><strong class="text-slate-900">London Interbank</strong></div>
@@ -506,10 +568,13 @@
         </div>
 
         <!-- USD/JPY -->
-        <div class="p-5 bg-slate-50 rounded-2xl space-y-3">
+        <div class="p-5 rounded-2xl border border-indigo-200/90 bg-gradient-to-b from-indigo-50/40 via-white to-slate-50/50 shadow-xs hover:border-indigo-400 hover:shadow-md hover:-translate-y-0.5 transition-all duration-200 space-y-3">
           <div class="flex items-center justify-between pb-1">
-            <h3 class="font-display font-bold text-slate-900 text-base">USD / JPY</h3>
-            <span class="px-2 py-0.5 text-[10px] font-mono font-semibold bg-white text-slate-700 rounded-md shadow-xs">POLICY 03</span>
+            <h3 class="font-display font-bold text-slate-900 text-base flex items-center gap-1.5">
+              <span class="w-2 h-2 rounded-full bg-indigo-500"></span>
+              USD / JPY
+            </h3>
+            <span class="px-2 py-0.5 text-[10px] font-mono font-bold bg-indigo-50 text-indigo-700 border border-indigo-200/80 rounded-md">POLICY 03</span>
           </div>
           <div class="space-y-1.5 text-xs font-mono text-slate-600">
             <div class="flex justify-between"><span>Session Depth:</span><strong class="text-slate-900">Asian / Tokyo Fix</strong></div>
@@ -524,10 +589,13 @@
         </div>
 
         <!-- AUD/USD -->
-        <div class="p-5 bg-slate-50 rounded-2xl space-y-3">
+        <div class="p-5 rounded-2xl border border-amber-200/90 bg-gradient-to-b from-amber-50/40 via-white to-slate-50/50 shadow-xs hover:border-amber-400 hover:shadow-md hover:-translate-y-0.5 transition-all duration-200 space-y-3">
           <div class="flex items-center justify-between pb-1">
-            <h3 class="font-display font-bold text-slate-900 text-base">AUD / USD</h3>
-            <span class="px-2 py-0.5 text-[10px] font-mono font-semibold bg-white text-slate-700 rounded-md shadow-xs">POLICY 04</span>
+            <h3 class="font-display font-bold text-slate-900 text-base flex items-center gap-1.5">
+              <span class="w-2 h-2 rounded-full bg-[#D97706]"></span>
+              AUD / USD
+            </h3>
+            <span class="px-2 py-0.5 text-[10px] font-mono font-bold bg-amber-50 text-amber-700 border border-amber-200/80 rounded-md">POLICY 04</span>
           </div>
           <div class="space-y-1.5 text-xs font-mono text-slate-600">
             <div class="flex justify-between"><span>Session Depth:</span><strong class="text-slate-900">Pacific / Sydney</strong></div>
@@ -550,7 +618,7 @@
     <section id="how-it-works" class="space-y-8">
       
       <!-- Market Sessions Tracker Strip -->
-      <div class="bg-white border border-slate-100 rounded-3xl p-6 sm:p-8 shadow-card space-y-4">
+      <div class="section-container rounded-3xl p-6 sm:p-8 shadow-card space-y-5">
         <div class="flex flex-col sm:flex-row sm:items-center justify-between pb-2 gap-2">
           <div>
             <span class="text-xs font-mono font-bold uppercase tracking-wider text-[#FF5353] block mb-0.5">Liquidity Corridors</span>
@@ -558,13 +626,13 @@
           </div>
           <div class="flex items-center gap-2 font-mono text-xs">
             <span class="text-slate-500">Liquidity Rating:</span>
-            <span id="landing-spread-rating" class="font-bold text-emerald-700">Optimal (Tight Spreads)</span>
+            <span id="landing-spread-rating" class="font-bold text-emerald-700 bg-emerald-50 border border-emerald-200/80 px-2.5 py-1 rounded-lg">Optimal (Tight Spreads)</span>
           </div>
         </div>
 
-        <div class="grid grid-cols-2 md:grid-cols-4 gap-3 font-mono text-xs">
-          <div id="landing-session-card-sydney" class="p-3 bg-slate-50 rounded-xl space-y-1">
-            <div class="flex items-center justify-between text-[10px] text-slate-500 uppercase">
+        <div class="grid grid-cols-2 md:grid-cols-4 gap-3.5 font-mono text-xs">
+          <div id="landing-session-card-sydney" class="p-3.5 bg-slate-50/80 border border-slate-200/80 rounded-2xl space-y-1.5 transition-all">
+            <div class="flex items-center justify-between text-[10px] text-slate-500 uppercase font-semibold">
               <span>Sydney (21–06 UTC)</span>
               <span id="landing-session-dot-sydney" class="w-2 h-2 rounded-full bg-slate-400"></span>
             </div>
@@ -572,8 +640,8 @@
             <span class="text-[10px] text-slate-400">Pacific Session Flow</span>
           </div>
 
-          <div id="landing-session-card-tokyo" class="p-3 bg-slate-50 rounded-xl space-y-1">
-            <div class="flex items-center justify-between text-[10px] text-slate-500 uppercase">
+          <div id="landing-session-card-tokyo" class="p-3.5 bg-slate-50/80 border border-slate-200/80 rounded-2xl space-y-1.5 transition-all">
+            <div class="flex items-center justify-between text-[10px] text-slate-500 uppercase font-semibold">
               <span>Tokyo (00–09 UTC)</span>
               <span id="landing-session-dot-tokyo" class="w-2 h-2 rounded-full bg-slate-400"></span>
             </div>
@@ -581,45 +649,45 @@
             <span class="text-[10px] text-slate-400">Asian Interbank JPY</span>
           </div>
 
-          <div id="landing-session-card-london" class="p-3 bg-slate-50 rounded-xl space-y-1">
-            <div class="flex items-center justify-between text-[10px] text-slate-500 uppercase">
+          <div id="landing-session-card-london" class="p-3.5 bg-gradient-to-b from-emerald-50/70 via-white to-emerald-50/30 border border-emerald-300/90 ring-2 ring-emerald-50 rounded-2xl space-y-1.5 shadow-xs transition-all">
+            <div class="flex items-center justify-between text-[10px] text-emerald-800 uppercase font-semibold">
               <span>London (07–16 UTC)</span>
               <span id="landing-session-dot-london" class="w-2 h-2 rounded-full bg-emerald-500 animate-pulse"></span>
             </div>
             <span id="landing-session-status-london" class="text-xs font-bold text-emerald-700 block">ACTIVE (OPEN)</span>
-            <span class="text-[10px] text-slate-400">~35% Global Volume</span>
+            <span class="text-[10px] text-emerald-600/80">~35% Global Volume</span>
           </div>
 
-          <div id="landing-session-card-newyork" class="p-3 bg-slate-50 rounded-xl space-y-1">
-            <div class="flex items-center justify-between text-[10px] text-slate-500 uppercase">
+          <div id="landing-session-card-newyork" class="p-3.5 bg-gradient-to-b from-emerald-50/70 via-white to-emerald-50/30 border border-emerald-300/90 ring-2 ring-emerald-50 rounded-2xl space-y-1.5 shadow-xs transition-all">
+            <div class="flex items-center justify-between text-[10px] text-emerald-800 uppercase font-semibold">
               <span>New York (12–21 UTC)</span>
               <span id="landing-session-dot-newyork" class="w-2 h-2 rounded-full bg-emerald-500 animate-pulse"></span>
             </div>
             <span id="landing-session-status-newyork" class="text-xs font-bold text-emerald-700 block">ACTIVE (OPEN)</span>
-            <span class="text-[10px] text-slate-400">~20% Global Volume</span>
+            <span class="text-[10px] text-emerald-600/80">~20% Global Volume</span>
           </div>
         </div>
 
-        <div class="p-3 bg-slate-50 rounded-xl flex flex-col sm:flex-row sm:items-center justify-between text-xs font-mono text-slate-600 gap-2">
+        <div class="p-3.5 bg-gradient-to-r from-emerald-50/80 via-white to-emerald-50/40 rounded-2xl border border-emerald-200/80 flex flex-col sm:flex-row sm:items-center justify-between text-xs font-mono text-slate-700 gap-2 shadow-2xs">
           <div class="flex items-center gap-2">
-            <span id="landing-session-window-dot" class="w-2 h-2 rounded-full bg-emerald-500"></span>
+            <span id="landing-session-window-dot" class="w-2.5 h-2.5 rounded-full bg-emerald-500 animate-pulse"></span>
             <span>Current Window: <strong id="landing-session-window-text" class="text-slate-900">London / New York Peak Overlap (12:00 – 16:00 UTC)</strong></span>
           </div>
-          <span id="landing-session-volume-badge" class="text-emerald-700 font-semibold text-[11px]">Maximum Interbank Liquidity</span>
+          <span id="landing-session-volume-badge" class="text-emerald-800 font-bold text-[11px] bg-white/90 border border-emerald-200 px-2.5 py-0.5 rounded-full shadow-2xs">Maximum Interbank Liquidity</span>
         </div>
       </div>
 
       <!-- 5-Stage Execution Pipeline -->
-      <div class="bg-white border border-slate-100 rounded-3xl p-6 sm:p-8 shadow-card space-y-6">
+      <div class="section-container rounded-3xl p-6 sm:p-8 shadow-card space-y-6">
         <div class="max-w-2xl">
           <span class="text-xs font-mono font-bold uppercase tracking-wider text-[#FF5353] block mb-1">Execution Pipeline</span>
           <h3 class="text-2xl font-display font-extrabold text-slate-900">Automated 5-Stage Trading Lifecycle</h3>
           <p class="text-xs text-slate-600 mt-1 font-sans">Every hourly candle is processed through a deterministic multi-stage evaluation pipeline:</p>
         </div>
 
-        <div class="grid grid-cols-1 md:grid-cols-5 gap-3">
+        <div class="grid grid-cols-1 md:grid-cols-5 gap-3.5">
           
-          <div class="p-4 bg-slate-50 rounded-2xl space-y-2">
+          <div class="relative p-4.5 bg-gradient-to-b from-white to-slate-50/70 rounded-2xl border border-rose-200/80 hover:border-rose-300 hover:shadow-md hover:-translate-y-0.5 transition-all duration-200 space-y-2.5 shadow-2xs">
             <div class="text-[10px] font-mono font-bold text-[#FF5353] flex items-center justify-between">
               <span>STAGE 01</span>
               <span class="text-slate-400 uppercase">INGEST</span>
@@ -630,8 +698,8 @@
             </p>
           </div>
 
-          <div class="p-4 bg-slate-50 rounded-2xl space-y-2">
-            <div class="text-[10px] font-mono font-bold text-[#FF5353] flex items-center justify-between">
+          <div class="relative p-4.5 bg-gradient-to-b from-white to-slate-50/70 rounded-2xl border border-indigo-200/80 hover:border-indigo-300 hover:shadow-md hover:-translate-y-0.5 transition-all duration-200 space-y-2.5 shadow-2xs">
+            <div class="text-[10px] font-mono font-bold text-indigo-600 flex items-center justify-between">
               <span>STAGE 02</span>
               <span class="text-slate-400 uppercase">FEATURES</span>
             </div>
@@ -641,8 +709,8 @@
             </p>
           </div>
 
-          <div class="p-4 bg-slate-50 rounded-2xl space-y-2">
-            <div class="text-[10px] font-mono font-bold text-[#FF5353] flex items-center justify-between">
+          <div class="relative p-4.5 bg-gradient-to-b from-white to-slate-50/70 rounded-2xl border border-purple-200/80 hover:border-purple-300 hover:shadow-md hover:-translate-y-0.5 transition-all duration-200 space-y-2.5 shadow-2xs">
+            <div class="text-[10px] font-mono font-bold text-purple-600 flex items-center justify-between">
               <span>STAGE 03</span>
               <span class="text-slate-400 uppercase">INFERENCE</span>
             </div>
@@ -652,8 +720,8 @@
             </p>
           </div>
 
-          <div class="p-4 bg-slate-50 rounded-2xl space-y-2">
-            <div class="text-[10px] font-mono font-bold text-[#FF5353] flex items-center justify-between">
+          <div class="relative p-4.5 bg-gradient-to-b from-white to-slate-50/70 rounded-2xl border border-amber-200/80 hover:border-amber-300 hover:shadow-md hover:-translate-y-0.5 transition-all duration-200 space-y-2.5 shadow-2xs">
+            <div class="text-[10px] font-mono font-bold text-amber-600 flex items-center justify-between">
               <span>STAGE 04</span>
               <span class="text-slate-400 uppercase">PROTECT</span>
             </div>
@@ -663,8 +731,8 @@
             </p>
           </div>
 
-          <div class="p-4 bg-slate-50 rounded-2xl space-y-2">
-            <div class="text-[10px] font-mono font-bold text-[#FF5353] flex items-center justify-between">
+          <div class="relative p-4.5 bg-gradient-to-b from-white to-slate-50/70 rounded-2xl border border-emerald-200/80 hover:border-emerald-300 hover:shadow-md hover:-translate-y-0.5 transition-all duration-200 space-y-2.5 shadow-2xs">
+            <div class="text-[10px] font-mono font-bold text-emerald-600 flex items-center justify-between">
               <span>STAGE 05</span>
               <span class="text-slate-400 uppercase">MATCH</span>
             </div>
@@ -682,7 +750,7 @@
     <!-- ========================================================================= -->
     <!-- 5. NEURAL ARCHITECTURE — HOW THE POLICY ENSEMBLE IS STRUCTURED            -->
     <!-- ========================================================================= -->
-    <section id="neural-architecture" class="bg-white border border-slate-100 rounded-3xl p-6 sm:p-10 shadow-card space-y-6">
+    <section id="neural-architecture" class="section-container rounded-3xl p-6 sm:p-10 shadow-card space-y-6">
       <div class="max-w-2xl">
         <span class="text-xs font-mono font-bold uppercase tracking-wider text-[#FF5353] block mb-1">Deep Learning Specification</span>
         <h2 class="text-2xl sm:text-3xl font-display font-extrabold text-slate-900">PyTorch Actor-Critic Neural Policy Pipeline</h2>
@@ -693,31 +761,43 @@
 
       <div class="grid grid-cols-1 md:grid-cols-3 gap-5 text-xs font-mono">
         
-        <div class="p-5 bg-slate-50 rounded-2xl space-y-2">
-          <span class="text-[10px] uppercase font-bold text-[#FF5353]">Model Core</span>
+        <div class="group relative p-6 bg-gradient-to-b from-white to-slate-50/80 rounded-2xl border border-indigo-200/80 hover:border-indigo-300 hover:shadow-md hover:-translate-y-0.5 transition-all duration-200 space-y-3 overflow-hidden shadow-2xs">
+          <div class="absolute top-0 inset-x-0 h-1 bg-gradient-to-r from-indigo-500 to-purple-500"></div>
+          <span class="text-[10px] uppercase font-bold text-indigo-600 tracking-wider">Model Core</span>
           <h4 class="font-display font-bold text-slate-900 text-sm">TradingLSTMPolicy (PyTorch)</h4>
           <p class="text-[11px] text-slate-600 font-sans leading-relaxed">
             Utilizes an LSTM recurrent layer with 128 hidden units to maintain sequential market memory across rolling multi-hour candle windows.
           </p>
-          <div class="pt-2 text-[10px] text-slate-500 font-semibold">Input: 14 Normalized Indicators</div>
+          <div class="pt-2 text-[10px] text-slate-500 font-semibold flex items-center gap-1.5">
+            <span class="w-1.5 h-1.5 rounded-full bg-indigo-500"></span>
+            <span>Input: 14 Normalized Indicators</span>
+          </div>
         </div>
 
-        <div class="p-5 bg-slate-50 rounded-2xl space-y-2">
-          <span class="text-[10px] uppercase font-bold text-[#FF5353]">Action Space</span>
+        <div class="group relative p-6 bg-gradient-to-b from-white to-slate-50/80 rounded-2xl border border-rose-200/80 hover:border-rose-300 hover:shadow-md hover:-translate-y-0.5 transition-all duration-200 space-y-3 overflow-hidden shadow-2xs">
+          <div class="absolute top-0 inset-x-0 h-1 bg-gradient-to-r from-rose-500 to-red-500"></div>
+          <span class="text-[10px] uppercase font-bold text-[#FF5353] tracking-wider">Action Space</span>
           <h4 class="font-display font-bold text-slate-900 text-sm">Actor Head (3 Discrete Logits)</h4>
           <p class="text-[11px] text-slate-600 font-sans leading-relaxed">
             Outputs discrete probability distributions across <strong>Long</strong>, <strong>Flat</strong>, and <strong>Short</strong> with soft-max normalization and entropy regularization.
           </p>
-          <div class="pt-2 text-[10px] text-slate-500 font-semibold">Objective: Clipped PPO Loss</div>
+          <div class="pt-2 text-[10px] text-slate-500 font-semibold flex items-center gap-1.5">
+            <span class="w-1.5 h-1.5 rounded-full bg-[#FF5353]"></span>
+            <span>Objective: Clipped PPO Loss</span>
+          </div>
         </div>
 
-        <div class="p-5 bg-slate-50 rounded-2xl space-y-2">
-          <span class="text-[10px] uppercase font-bold text-[#FF5353]">Advisory LLM</span>
+        <div class="group relative p-6 bg-gradient-to-b from-white to-slate-50/80 rounded-2xl border border-emerald-200/80 hover:border-emerald-300 hover:shadow-md hover:-translate-y-0.5 transition-all duration-200 space-y-3 overflow-hidden shadow-2xs">
+          <div class="absolute top-0 inset-x-0 h-1 bg-gradient-to-r from-emerald-500 to-teal-500"></div>
+          <span class="text-[10px] uppercase font-bold text-emerald-700 tracking-wider">Advisory LLM</span>
           <h4 class="font-display font-bold text-slate-900 text-sm">Decoupled Local LLM Context</h4>
           <p class="text-[11px] text-slate-600 font-sans leading-relaxed">
             Ollama DeepSeek-R1 runs asynchronously in a non-blocking queue to provide qualitative market commentary. Strictly decoupled with zero live order execution authority.
           </p>
-          <div class="pt-2 text-[10px] text-emerald-700 font-semibold">Zero Execution Authority</div>
+          <div class="pt-2 text-[10px] text-emerald-700 font-semibold flex items-center gap-1.5">
+            <span class="w-1.5 h-1.5 rounded-full bg-emerald-500 animate-pulse"></span>
+            <span>Zero Execution Authority</span>
+          </div>
         </div>
 
       </div>
@@ -726,51 +806,51 @@
     <!-- ========================================================================= -->
     <!-- 6. EXECUTION INFRASTRUCTURE — OANDA REST API VS TRADITIONAL EAS           -->
     <!-- ========================================================================= -->
-    <section id="execution" class="bg-white border border-slate-100 rounded-3xl p-6 sm:p-10 shadow-card space-y-6">
+    <section id="execution" class="section-container rounded-3xl p-6 sm:p-10 shadow-card space-y-6">
       <div class="flex flex-col sm:flex-row sm:items-center justify-between pb-2 gap-2">
         <div>
           <span class="text-xs font-mono font-bold uppercase tracking-wider text-[#FF5353] block mb-1">Architecture Comparison</span>
           <h2 class="text-2xl font-display font-extrabold text-slate-900">Modern API Bot vs. Legacy Desktop MetaTrader EA</h2>
         </div>
-        <span class="text-xs font-mono text-slate-600 bg-slate-100 px-3 py-1 rounded-full self-start sm:self-auto font-medium">
+        <span class="text-xs font-mono text-slate-700 bg-white border border-slate-200 px-3.5 py-1.5 rounded-full self-start sm:self-auto font-bold shadow-2xs">
           TAXONOMY BENCHMARK
         </span>
       </div>
 
-      <div class="overflow-x-auto border border-slate-100 rounded-2xl">
+      <div class="overflow-x-auto border border-slate-200/90 rounded-2xl shadow-xs bg-white">
         <table class="w-full text-left text-xs font-mono">
-          <thead class="bg-slate-50/80 border-b border-slate-100 text-slate-500 text-[11px] uppercase tracking-wider">
+          <thead class="bg-slate-50 border-b border-slate-200 text-slate-600 text-[11px] uppercase tracking-wider">
             <tr>
-              <th class="py-3 px-4 w-1/4">Evaluation Dimension</th>
-              <th class="py-3 px-4 w-3/8 text-slate-500">Retail MetaTrader EA (MT4 / MT5)</th>
-              <th class="py-3 px-4 w-3/8 text-[#FF5353] font-bold">FOREX AI API Bot (OANDA v20 / PyTorch)</th>
+              <th class="py-3.5 px-4 w-1/4">Evaluation Dimension</th>
+              <th class="py-3.5 px-4 w-3/8 text-slate-500">Retail MetaTrader EA (MT4 / MT5)</th>
+              <th class="py-3.5 px-4 w-3/8 text-[#FF5353] font-bold">FOREX AI API Bot (OANDA v20 / PyTorch)</th>
             </tr>
           </thead>
           <tbody class="divide-y divide-slate-100 text-[11px]">
             <tr class="hover:bg-slate-50/50 transition-colors">
               <td class="py-3.5 px-4 font-bold text-slate-900 font-sans">Execution Runtime</td>
               <td class="py-3.5 px-4 text-slate-500 font-sans">Requires continuous Windows GUI desktop uptime or expensive VPS. Vulnerable to GUI freeze and OS auto-restarts.</td>
-              <td class="py-3.5 px-4 text-emerald-800 font-semibold font-sans">Headless Linux background daemon. Operates on cloud servers with systemd supervision and zero GUI overhead.</td>
+              <td class="py-3.5 px-4 text-emerald-800 font-semibold font-sans bg-emerald-50/20 border-l border-r border-emerald-100/50">Headless Linux background daemon. Operates on cloud servers with systemd supervision and zero GUI overhead.</td>
             </tr>
             <tr class="hover:bg-slate-50/50 transition-colors">
               <td class="py-3.5 px-4 font-bold text-slate-900 font-sans">Strategy Engine</td>
               <td class="py-3.5 px-4 text-slate-500 font-sans">Restricted to simple indicator heuristics (moving average crossovers, RSI bands). Cannot run deep learning natively.</td>
-              <td class="py-3.5 px-4 text-emerald-800 font-semibold font-sans">Full PyTorch Deep Reinforcement Learning. Evaluates 128-dimensional LSTM temporal memory windows.</td>
+              <td class="py-3.5 px-4 text-emerald-800 font-semibold font-sans bg-emerald-50/20 border-l border-r border-emerald-100/50">Full PyTorch Deep Reinforcement Learning. Evaluates 128-dimensional LSTM temporal memory windows.</td>
             </tr>
             <tr class="hover:bg-slate-50/50 transition-colors">
               <td class="py-3.5 px-4 font-bold text-slate-900 font-sans">Order Bracket Safety</td>
               <td class="py-3.5 px-4 text-slate-500 font-sans">Many EAs manage trailing stops via local timer loops. If the computer crashes, positions remain unprotected.</td>
-              <td class="py-3.5 px-4 text-emerald-800 font-semibold font-sans">Server-Side Brackets: Stop-Loss and Take-Profit orders attach directly to the OANDA broker matching engine.</td>
+              <td class="py-3.5 px-4 text-emerald-800 font-semibold font-sans bg-emerald-50/20 border-l border-r border-emerald-100/50">Server-Side Brackets: Stop-Loss and Take-Profit orders attach directly to the OANDA broker matching engine.</td>
             </tr>
             <tr class="hover:bg-slate-50/50 transition-colors">
               <td class="py-3.5 px-4 font-bold text-slate-900 font-sans">Economic News Defense</td>
               <td class="py-3.5 px-4 text-slate-500 font-sans">Typically blind to macro calendar events unless unstable third-party DLL scrapers are installed.</td>
-              <td class="py-3.5 px-4 text-emerald-800 font-semibold font-sans">Integrated Economic Calendar: 30-min pre/post news blackout shield prevents toxic slippage spikes.</td>
+              <td class="py-3.5 px-4 text-emerald-800 font-semibold font-sans bg-emerald-50/20 border-l border-r border-emerald-100/50">Integrated Economic Calendar: 30-min pre/post news blackout shield prevents toxic slippage spikes.</td>
             </tr>
             <tr class="hover:bg-slate-50/50 transition-colors">
               <td class="py-3.5 px-4 font-bold text-slate-900 font-sans">Capital Risk Paradigm</td>
               <td class="py-3.5 px-4 text-slate-500 font-sans">Common reliance on Martingale multipliers or grid averaging down, leading to catastrophic account drawdowns.</td>
-              <td class="py-3.5 px-4 text-emerald-800 font-semibold font-sans">100% Non-Martingale. Strict 1-trade-per-pair maximum with predetermined ATR volatility risk sizing.</td>
+              <td class="py-3.5 px-4 text-emerald-800 font-semibold font-sans bg-emerald-50/20 border-l border-r border-emerald-100/50">100% Non-Martingale. Strict 1-trade-per-pair maximum with predetermined ATR volatility risk sizing.</td>
             </tr>
           </tbody>
         </table>
@@ -780,7 +860,7 @@
     <!-- ========================================================================= -->
     <!-- 6B. DATA PIPELINE — WHERE REAL FOREX DATA OPERATES                        -->
     <!-- ========================================================================= -->
-    <section id="data-architecture" class="bg-white border border-slate-100 rounded-3xl p-6 sm:p-10 shadow-card space-y-6">
+    <section id="data-architecture" class="section-container rounded-3xl p-6 sm:p-10 shadow-card space-y-6">
       <div class="flex flex-col sm:flex-row sm:items-center justify-between pb-2 gap-2">
         <div>
           <span class="text-xs font-mono font-bold uppercase tracking-wider text-[#FF5353] block mb-1">Operational Data Pipeline</span>
@@ -789,34 +869,34 @@
             By institutional design, heavy broker streaming and live trading execution remain strictly isolated to the authenticated Web Terminal and continuous background daemon.
           </p>
         </div>
-        <div class="flex items-center gap-2 font-mono text-xs bg-slate-50 px-3 py-1.5 rounded-xl border border-slate-200">
+        <div class="flex items-center gap-2 font-mono text-xs bg-white px-3.5 py-1.5 rounded-full border border-slate-200 shadow-2xs">
           <span class="w-2 h-2 rounded-full bg-emerald-500 animate-pulse"></span>
           <span class="text-slate-700 font-bold">2 OPERATIONAL LIVE ENGINES</span>
         </div>
       </div>
 
       <!-- Real-Time Data Matrix Table -->
-      <div class="overflow-x-auto border border-slate-100 rounded-2xl">
+      <div class="overflow-x-auto border border-slate-200/90 rounded-2xl shadow-xs bg-white">
         <table class="w-full text-left text-xs font-mono">
-          <thead class="bg-slate-50/80 border-b border-slate-100 text-slate-500 text-[11px] uppercase tracking-wider">
+          <thead class="bg-slate-50 border-b border-slate-200 text-slate-600 text-[11px] uppercase tracking-wider">
             <tr>
-              <th class="py-3 px-4 w-1/4">System Component</th>
-              <th class="py-3 px-4 w-1/6 text-center">Uses Real Forex Data?</th>
-              <th class="py-3 px-4 w-7/12">Operational Purpose &amp; Live Capabilities</th>
+              <th class="py-3.5 px-4 w-1/4">System Component</th>
+              <th class="py-3.5 px-4 w-1/6 text-center">Uses Real Forex Data?</th>
+              <th class="py-3.5 px-4 w-7/12">Operational Purpose &amp; Live Capabilities</th>
             </tr>
           </thead>
           <tbody class="divide-y divide-slate-100 text-[11px]">
             <!-- Web Dashboard -->
-            <tr class="hover:bg-slate-50/50 transition-colors">
-              <td class="py-4 px-4 font-bold text-slate-900 font-sans">
+            <tr class="hover:bg-slate-50/50 transition-colors bg-emerald-50/20">
+              <td class="py-4 px-4 font-bold text-slate-900 font-sans border-r border-slate-100">
                 <div class="flex items-center gap-2">
-                  <span class="w-2.5 h-2.5 rounded-full bg-emerald-500"></span>
+                  <span class="w-2.5 h-2.5 rounded-full bg-emerald-500 animate-pulse"></span>
                   <span class="text-sm">Web Dashboard</span>
                 </div>
                 <div class="text-[10px] text-slate-400 font-mono mt-0.5">/dashboard</div>
               </td>
-              <td class="py-4 px-4 text-center">
-                <span class="px-3 py-1 rounded-full bg-emerald-100 text-emerald-800 font-bold text-[10px] border border-emerald-200">
+              <td class="py-4 px-4 text-center border-r border-slate-100">
+                <span class="px-3 py-1 rounded-full bg-emerald-100 text-emerald-800 font-bold text-[10px] border border-emerald-300 ring-2 ring-emerald-50">
                   YES (LIVE)
                 </span>
               </td>
@@ -829,16 +909,16 @@
             </tr>
 
             <!-- Trading Engine -->
-            <tr class="hover:bg-slate-50/50 transition-colors">
-              <td class="py-4 px-4 font-bold text-slate-900 font-sans">
+            <tr class="hover:bg-slate-50/50 transition-colors bg-indigo-50/20">
+              <td class="py-4 px-4 font-bold text-slate-900 font-sans border-r border-slate-100">
                 <div class="flex items-center gap-2">
-                  <span class="w-2.5 h-2.5 rounded-full bg-indigo-500"></span>
+                  <span class="w-2.5 h-2.5 rounded-full bg-indigo-500 animate-pulse"></span>
                   <span class="text-sm">Trading Engine</span>
                 </div>
                 <div class="text-[10px] text-slate-400 font-mono mt-0.5">live_paper_portfolio.py</div>
               </td>
-              <td class="py-4 px-4 text-center">
-                <span class="px-3 py-1 rounded-full bg-indigo-100 text-indigo-800 font-bold text-[10px] border border-indigo-200">
+              <td class="py-4 px-4 text-center border-r border-slate-100">
+                <span class="px-3 py-1 rounded-full bg-indigo-100 text-indigo-800 font-bold text-[10px] border border-indigo-300 ring-2 ring-indigo-50">
                   YES (24/5 DAEMON)
                 </span>
               </td>
@@ -852,14 +932,14 @@
 
             <!-- Landing Page -->
             <tr class="hover:bg-slate-50/50 transition-colors bg-slate-50/30">
-              <td class="py-4 px-4 font-bold text-slate-900 font-sans">
+              <td class="py-4 px-4 font-bold text-slate-900 font-sans border-r border-slate-100">
                 <div class="flex items-center gap-2">
                   <span class="w-2.5 h-2.5 rounded-full bg-slate-400"></span>
                   <span class="text-sm">Landing Page</span>
                 </div>
                 <div class="text-[10px] text-slate-400 font-mono mt-0.5">/ (Public)</div>
               </td>
-              <td class="py-4 px-4 text-center">
+              <td class="py-4 px-4 text-center border-r border-slate-100">
                 <span class="px-3 py-1 rounded-full bg-slate-100 text-slate-600 font-bold text-[10px] border border-slate-200">
                   READ-ONLY / SPEC
                 </span>
@@ -876,56 +956,56 @@
       </div>
 
       <!-- Live Telemetry Card Strip -->
-      <div class="p-5 bg-slate-50 rounded-2xl border border-slate-200/80 space-y-3">
-        <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-2 border-b border-slate-200/60 pb-2.5">
+      <div class="p-5 bg-gradient-to-b from-slate-900/[0.03] to-slate-100/70 rounded-2xl border border-slate-200/90 space-y-3.5 shadow-inner">
+        <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-2 border-b border-slate-200/80 pb-2.5">
           <div class="flex items-center gap-2">
             <span class="w-2.5 h-2.5 rounded-full bg-emerald-500 animate-pulse"></span>
             <span class="font-bold text-slate-900 text-xs font-mono uppercase tracking-wide">Live Operational Telemetry Strip</span>
-            <span class="px-2 py-0.5 rounded text-[10px] bg-white border border-slate-200 text-slate-600 font-mono" id="landing-ai-badge">Google Gemini 2.5 Flash</span>
+            <span class="px-2.5 py-0.5 rounded-full text-[10px] bg-white border border-slate-200 text-slate-700 font-mono font-semibold shadow-2xs" id="landing-ai-badge">Google Gemini 2.5 Flash</span>
           </div>
           <span class="text-[11px] font-mono text-slate-400" id="landing-telemetry-updated">Live Sync: Active</span>
         </div>
 
         <div class="grid grid-cols-2 sm:grid-cols-4 gap-3 text-xs font-mono">
-          <div class="p-3 bg-white rounded-xl border border-slate-200/80 shadow-2xs">
+          <div class="p-3 bg-white/95 backdrop-blur-sm rounded-xl border border-slate-200/90 shadow-2xs hover:border-slate-300 hover:shadow-xs transition-all">
             <div class="flex items-center justify-between text-[10px] text-slate-400">
               <span class="font-bold text-slate-800">EUR / USD</span>
-              <span id="telemetry-signal-EURUSD" class="px-1.5 py-0.2 rounded font-bold bg-emerald-50 text-emerald-700">BUY / LONG</span>
+              <span id="telemetry-signal-EURUSD" class="px-2 py-0.5 rounded font-bold bg-emerald-50 text-emerald-700 border border-emerald-200/70">BUY / LONG</span>
             </div>
-            <div class="mt-2 flex items-baseline justify-between">
+            <div class="mt-2.5 flex items-baseline justify-between">
               <span class="text-[11px] text-slate-500">Live Spread:</span>
               <strong id="telemetry-spread-EURUSD" class="text-slate-900 font-bold">3.4 pips</strong>
             </div>
           </div>
 
-          <div class="p-3 bg-white rounded-xl border border-slate-200/80 shadow-2xs">
+          <div class="p-3 bg-white/95 backdrop-blur-sm rounded-xl border border-slate-200/90 shadow-2xs hover:border-slate-300 hover:shadow-xs transition-all">
             <div class="flex items-center justify-between text-[10px] text-slate-400">
               <span class="font-bold text-slate-800">USD / JPY</span>
-              <span id="telemetry-signal-USDJPY" class="px-1.5 py-0.2 rounded font-bold bg-emerald-50 text-emerald-700">BUY / LONG</span>
+              <span id="telemetry-signal-USDJPY" class="px-2 py-0.5 rounded font-bold bg-emerald-50 text-emerald-700 border border-emerald-200/70">BUY / LONG</span>
             </div>
-            <div class="mt-2 flex items-baseline justify-between">
+            <div class="mt-2.5 flex items-baseline justify-between">
               <span class="text-[11px] text-slate-500">Live Spread:</span>
               <strong id="telemetry-spread-USDJPY" class="text-slate-900 font-bold">3.7 pips</strong>
             </div>
           </div>
 
-          <div class="p-3 bg-white rounded-xl border border-slate-200/80 shadow-2xs">
+          <div class="p-3 bg-white/95 backdrop-blur-sm rounded-xl border border-slate-200/90 shadow-2xs hover:border-slate-300 hover:shadow-xs transition-all">
             <div class="flex items-center justify-between text-[10px] text-slate-400">
               <span class="font-bold text-slate-800">AUD / USD</span>
-              <span id="telemetry-signal-AUDUSD" class="px-1.5 py-0.2 rounded font-bold bg-slate-100 text-slate-700">HOLD / FLAT</span>
+              <span id="telemetry-signal-AUDUSD" class="px-2 py-0.5 rounded font-bold bg-slate-100 text-slate-700 border border-slate-200">HOLD / FLAT</span>
             </div>
-            <div class="mt-2 flex items-baseline justify-between">
+            <div class="mt-2.5 flex items-baseline justify-between">
               <span class="text-[11px] text-slate-500">Live Spread:</span>
               <strong id="telemetry-spread-AUDUSD" class="text-slate-900 font-bold">9.3 pips</strong>
             </div>
           </div>
 
-          <div class="p-3 bg-white rounded-xl border border-slate-200/80 shadow-2xs">
+          <div class="p-3 bg-white/95 backdrop-blur-sm rounded-xl border border-slate-200/90 shadow-2xs hover:border-slate-300 hover:shadow-xs transition-all">
             <div class="flex items-center justify-between text-[10px] text-slate-400">
               <span class="font-bold text-slate-800">GBP / USD</span>
-              <span id="telemetry-signal-GBPUSD" class="px-1.5 py-0.2 rounded font-bold bg-slate-100 text-slate-700">HOLD / FLAT</span>
+              <span id="telemetry-signal-GBPUSD" class="px-2 py-0.5 rounded font-bold bg-slate-100 text-slate-700 border border-slate-200">HOLD / FLAT</span>
             </div>
-            <div class="mt-2 flex items-baseline justify-between">
+            <div class="mt-2.5 flex items-baseline justify-between">
               <span class="text-[11px] text-slate-500">Live Spread:</span>
               <strong id="telemetry-spread-GBPUSD" class="text-slate-900 font-bold">5.4 pips</strong>
             </div>
@@ -933,7 +1013,7 @@
         </div>
 
         <div class="flex flex-col sm:flex-row sm:items-center justify-between pt-1 text-[11px] text-slate-500 gap-2 font-mono">
-          <span>Continuous Execution Engine: <strong class="text-slate-800" id="landing-engine-status">Active (24/5 Hourly Loop)</strong></span>
+          <span>Continuous Execution Engine: <strong class="text-slate-900" id="landing-engine-status">Active (24/5 Hourly Loop)</strong></span>
           <a href="/dashboard" class="text-indigo-600 hover:text-indigo-800 font-bold inline-flex items-center gap-1 transition">
             <span>Open Terminal for Full Order Ledger</span> &rarr;
           </a>
@@ -955,33 +1035,53 @@
 
       <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5">
         
-        <div class="bg-white p-6 rounded-2xl border border-slate-100 shadow-card space-y-2">
-          <span class="text-[10px] font-mono uppercase tracking-wider text-[#FF5353] font-bold">CIRCUIT BREAKER</span>
-          <h4 class="font-display font-bold text-slate-900 text-base">Daily Loss Killswitch</h4>
+        <!-- Risk Card 1: Circuit Breaker -->
+        <div class="group relative bg-white/95 backdrop-blur-sm p-6 rounded-2xl border border-slate-200/90 shadow-card hover:shadow-card-hover hover:-translate-y-1 transition-all duration-300 overflow-hidden space-y-3">
+          <div class="absolute top-0 inset-x-0 h-1 bg-gradient-to-r from-red-500 to-rose-600"></div>
+          <div class="flex items-center justify-between">
+            <span class="text-[10px] font-mono uppercase tracking-wider text-rose-700 bg-rose-50 border border-rose-200 px-2 py-0.5 rounded font-bold">CIRCUIT BREAKER</span>
+            <span class="text-xs font-bold font-mono text-slate-400">01</span>
+          </div>
+          <h4 class="font-display font-bold text-slate-900 text-base group-hover:text-rose-600 transition-colors">Daily Loss Killswitch</h4>
           <p class="text-xs text-slate-600 font-sans leading-relaxed">
             Daily cumulative losses are bounded by a strict hard ceiling (-3.0% of NAV). If breached, the engine halts all new position entries until the next UTC day.
           </p>
         </div>
 
-        <div class="bg-white p-6 rounded-2xl border border-slate-100 shadow-card space-y-2">
-          <span class="text-[10px] font-mono uppercase tracking-wider text-[#FF5353] font-bold">ASYMMETRIC RATIO</span>
-          <h4 class="font-display font-bold text-slate-900 text-base">Dynamic ATR Sizing</h4>
+        <!-- Risk Card 2: Dynamic ATR Sizing -->
+        <div class="group relative bg-white/95 backdrop-blur-sm p-6 rounded-2xl border border-slate-200/90 shadow-card hover:shadow-card-hover hover:-translate-y-1 transition-all duration-300 overflow-hidden space-y-3">
+          <div class="absolute top-0 inset-x-0 h-1 bg-gradient-to-r from-indigo-500 to-blue-600"></div>
+          <div class="flex items-center justify-between">
+            <span class="text-[10px] font-mono uppercase tracking-wider text-indigo-700 bg-indigo-50 border border-indigo-200 px-2 py-0.5 rounded font-bold">ASYMMETRIC RATIO</span>
+            <span class="text-xs font-bold font-mono text-slate-400">02</span>
+          </div>
+          <h4 class="font-display font-bold text-slate-900 text-base group-hover:text-indigo-600 transition-colors">Dynamic ATR Sizing</h4>
           <p class="text-xs text-slate-600 font-sans leading-relaxed">
             Stop-loss is structured at 2.0&times; Average True Range (ATR) with take-profit at 6.0&times; ATR, targeting a disciplined 1:3 mathematical risk-to-reward profile.
           </p>
         </div>
 
-        <div class="bg-white p-6 rounded-2xl border border-slate-100 shadow-card space-y-2">
-          <span class="text-[10px] font-mono uppercase tracking-wider text-[#FF5353] font-bold">SPREAD GUARD</span>
-          <h4 class="font-display font-bold text-slate-900 text-base">Cost-Gate Verification</h4>
+        <!-- Risk Card 3: Spread Guard -->
+        <div class="group relative bg-white/95 backdrop-blur-sm p-6 rounded-2xl border border-slate-200/90 shadow-card hover:shadow-card-hover hover:-translate-y-1 transition-all duration-300 overflow-hidden space-y-3">
+          <div class="absolute top-0 inset-x-0 h-1 bg-gradient-to-r from-amber-500 to-yellow-600"></div>
+          <div class="flex items-center justify-between">
+            <span class="text-[10px] font-mono uppercase tracking-wider text-amber-700 bg-amber-50 border border-amber-200 px-2 py-0.5 rounded font-bold">SPREAD GUARD</span>
+            <span class="text-xs font-bold font-mono text-slate-400">03</span>
+          </div>
+          <h4 class="font-display font-bold text-slate-900 text-base group-hover:text-amber-600 transition-colors">Cost-Gate Verification</h4>
           <p class="text-xs text-slate-600 font-sans leading-relaxed">
             Real-time bid/ask spread is sampled before dispatch. If market illiquidity widens the spread beyond 1.8 pips, orders are automatically dropped.
           </p>
         </div>
 
-        <div class="bg-white p-6 rounded-2xl border border-slate-100 shadow-card space-y-2">
-          <span class="text-[10px] font-mono uppercase tracking-wider text-[#FF5353] font-bold">LEDGER AUDIT</span>
-          <h4 class="font-display font-bold text-slate-900 text-base">Reconciliation Engine</h4>
+        <!-- Risk Card 4: Ledger Audit -->
+        <div class="group relative bg-white/95 backdrop-blur-sm p-6 rounded-2xl border border-slate-200/90 shadow-card hover:shadow-card-hover hover:-translate-y-1 transition-all duration-300 overflow-hidden space-y-3">
+          <div class="absolute top-0 inset-x-0 h-1 bg-gradient-to-r from-emerald-500 to-teal-600"></div>
+          <div class="flex items-center justify-between">
+            <span class="text-[10px] font-mono uppercase tracking-wider text-emerald-700 bg-emerald-50 border border-emerald-200 px-2 py-0.5 rounded font-bold">LEDGER AUDIT</span>
+            <span class="text-xs font-bold font-mono text-slate-400">04</span>
+          </div>
+          <h4 class="font-display font-bold text-slate-900 text-base group-hover:text-emerald-600 transition-colors">Reconciliation Engine</h4>
           <p class="text-xs text-slate-600 font-sans leading-relaxed">
             Every 4 seconds, broker cash balances on OANDA are cross-verified against the local strategy paper ledger to ensure complete mathematical transparency.
           </p>
@@ -993,13 +1093,13 @@
     <!-- ========================================================================= -->
     <!-- 8. TESTING AND VALIDATION — 5-PHASE PROTOCOL & REGRESSION TESTS          -->
     <!-- ========================================================================= -->
-    <section id="validation" class="bg-white border border-slate-100 rounded-3xl p-6 sm:p-10 shadow-card space-y-6">
-      <div class="flex flex-col sm:flex-row sm:items-center justify-between border-b border-slate-100 pb-4 gap-2">
+    <section id="validation" class="section-container rounded-3xl p-6 sm:p-10 shadow-card space-y-6">
+      <div class="flex flex-col sm:flex-row sm:items-center justify-between border-b border-slate-200/80 pb-4 gap-2">
         <div>
           <span class="text-xs font-mono font-bold uppercase tracking-wider text-[#FF5353] block mb-1">Scientific Verification</span>
           <h2 class="text-2xl font-display font-extrabold text-slate-900">5-Phase Testing &amp; Validation Protocol</h2>
         </div>
-        <span class="text-xs font-mono text-emerald-800 bg-emerald-50 px-3 py-1 rounded-full self-start sm:self-auto font-bold">
+        <span class="text-xs font-mono text-emerald-800 bg-emerald-50 border border-emerald-200/80 px-3.5 py-1.5 rounded-full self-start sm:self-auto font-bold shadow-2xs">
           112 UNIT TESTS VERIFIED
         </span>
       </div>
@@ -1008,9 +1108,9 @@
         Backtests are treated as initial hypotheses, not performance guarantees. System safety is verified through a rigorous multi-stage validation framework:
       </p>
 
-      <div class="grid grid-cols-1 md:grid-cols-5 gap-3">
+      <div class="grid grid-cols-1 md:grid-cols-5 gap-3.5">
         
-        <div class="p-4 bg-slate-50 rounded-2xl space-y-2 flex flex-col justify-between">
+        <div class="p-4.5 bg-gradient-to-b from-white to-slate-50/80 rounded-2xl border border-slate-200/90 hover:border-slate-300 hover:shadow-sm hover:-translate-y-0.5 transition-all duration-200 space-y-2 flex flex-col justify-between shadow-2xs">
           <div class="space-y-1">
             <span class="text-[10px] font-mono font-bold text-[#FF5353]">PHASE 01</span>
             <h4 class="font-display font-bold text-slate-900 text-xs">Out-of-Sample Split</h4>
@@ -1018,10 +1118,10 @@
               Historical data is partitioned into 80% training and 20% strictly isolated out-of-sample data to prevent curve-fitting and look-ahead bias.
             </p>
           </div>
-          <div class="text-[10px] font-mono text-emerald-700 pt-2">[ 80/20 ISOLATED ]</div>
+          <div class="text-[10px] font-mono text-emerald-700 font-bold pt-2">[ 80/20 ISOLATED ]</div>
         </div>
 
-        <div class="p-4 bg-slate-50 rounded-2xl space-y-2 flex flex-col justify-between">
+        <div class="p-4.5 bg-gradient-to-b from-white to-slate-50/80 rounded-2xl border border-slate-200/90 hover:border-slate-300 hover:shadow-sm hover:-translate-y-0.5 transition-all duration-200 space-y-2 flex flex-col justify-between shadow-2xs">
           <div class="space-y-1">
             <span class="text-[10px] font-mono font-bold text-[#FF5353]">PHASE 02</span>
             <h4 class="font-display font-bold text-slate-900 text-xs">Friction Modeling</h4>
@@ -1029,10 +1129,10 @@
               Models full broker spreads (0.8–1.8 pips), execution latency, and overnight financing swaps during backtest simulations.
             </p>
           </div>
-          <div class="text-[10px] font-mono text-emerald-700 pt-2">[ REALISTIC SPREADS ]</div>
+          <div class="text-[10px] font-mono text-emerald-700 font-bold pt-2">[ REALISTIC SPREADS ]</div>
         </div>
 
-        <div class="p-4 bg-slate-50 rounded-2xl space-y-2 flex flex-col justify-between">
+        <div class="p-4.5 bg-gradient-to-b from-white to-slate-50/80 rounded-2xl border border-slate-200/90 hover:border-slate-300 hover:shadow-sm hover:-translate-y-0.5 transition-all duration-200 space-y-2 flex flex-col justify-between shadow-2xs">
           <div class="space-y-1">
             <span class="text-[10px] font-mono font-bold text-[#FF5353]">PHASE 03</span>
             <h4 class="font-display font-bold text-slate-900 text-xs">Drawdown Stress Test</h4>
@@ -1040,10 +1140,10 @@
               Audits maximum peak-to-trough drawdowns, consecutive loss distributions, and Sortino ratios under volatile macro regimes.
             </p>
           </div>
-          <div class="text-[10px] font-mono text-emerald-700 pt-2">[ MDD AUDIT ]</div>
+          <div class="text-[10px] font-mono text-emerald-700 font-bold pt-2">[ MDD AUDIT ]</div>
         </div>
 
-        <div class="p-4 bg-slate-50 rounded-2xl space-y-2 flex flex-col justify-between">
+        <div class="p-4.5 bg-gradient-to-b from-white to-slate-50/80 rounded-2xl border border-slate-200/90 hover:border-slate-300 hover:shadow-sm hover:-translate-y-0.5 transition-all duration-200 space-y-2 flex flex-col justify-between shadow-2xs">
           <div class="space-y-1">
             <span class="text-[10px] font-mono font-bold text-[#FF5353]">PHASE 04</span>
             <h4 class="font-display font-bold text-slate-900 text-xs">Forward Practice Run</h4>
@@ -1051,10 +1151,10 @@
               Continuous forward execution on OANDA v20 REST practice accounts verifying fill parity between simulated orders and broker matching.
             </p>
           </div>
-          <div class="text-[10px] font-mono text-emerald-700 pt-2">[ LIVE OANDA MATCH ]</div>
+          <div class="text-[10px] font-mono text-emerald-700 font-bold pt-2">[ LIVE OANDA MATCH ]</div>
         </div>
 
-        <div class="p-4 bg-slate-50 rounded-2xl space-y-2 flex flex-col justify-between">
+        <div class="p-4.5 bg-gradient-to-b from-white to-slate-50/80 rounded-2xl border border-slate-200/90 hover:border-slate-300 hover:shadow-sm hover:-translate-y-0.5 transition-all duration-200 space-y-2 flex flex-col justify-between shadow-2xs">
           <div class="space-y-1">
             <span class="text-[10px] font-mono font-bold text-[#FF5353]">PHASE 05</span>
             <h4 class="font-display font-bold text-slate-900 text-xs">Continuous Unit Tests</h4>
@@ -1062,7 +1162,7 @@
               112 automated unit tests across currency pip accounting, Fernet credential encryption, news calendar cache, and risk guards.
             </p>
           </div>
-          <div class="text-[10px] font-mono text-emerald-700 pt-2">[ 112/112 PASSING ]</div>
+          <div class="text-[10px] font-mono text-emerald-700 font-bold pt-2">[ 112/112 PASSING ]</div>
         </div>
 
       </div>
@@ -1071,7 +1171,7 @@
     <!-- ========================================================================= -->
     <!-- 9. FAQ — IMPORTANT TECHNICAL QUESTIONS                                    -->
     <!-- ========================================================================= -->
-    <section id="faq" class="bg-white border border-slate-100 rounded-3xl p-6 sm:p-10 shadow-card space-y-6">
+    <section id="faq" class="section-container rounded-3xl p-6 sm:p-10 shadow-card space-y-6">
       <div class="max-w-2xl">
         <span class="text-xs font-mono font-bold uppercase tracking-wider text-[#FF5353] block mb-1">Knowledge Base</span>
         <h2 class="text-2xl sm:text-3xl font-display font-extrabold text-slate-900">Technical Architecture FAQ</h2>
@@ -1079,42 +1179,42 @@
 
       <div class="grid grid-cols-1 md:grid-cols-2 gap-5 text-xs font-sans">
         
-        <div class="p-5 bg-slate-50 rounded-2xl space-y-2">
+        <div class="p-5.5 bg-slate-50/70 border border-slate-200/80 rounded-2xl hover:bg-white hover:border-slate-300 hover:shadow-md transition-all duration-200 space-y-2">
           <h4 class="font-display font-bold text-slate-900 text-sm">How does the 4-pair ensemble manage cross-currency correlation?</h4>
           <p class="text-slate-600 leading-relaxed">
             Rather than running an identical heuristic policy across all pairs, the platform maintains four distinct PyTorch policies trained on isolated distributions. If the US Dollar index rallies, each pair independently evaluates its localized ATR volatility, spread gate, and order-flow liquidity rather than executing correlated trades in lockstep.
           </p>
         </div>
 
-        <div class="p-5 bg-slate-50 rounded-2xl space-y-2">
+        <div class="p-5.5 bg-slate-50/70 border border-slate-200/80 rounded-2xl hover:bg-white hover:border-slate-300 hover:shadow-md transition-all duration-200 space-y-2">
           <h4 class="font-display font-bold text-slate-900 text-sm">What happens to open positions if the server loses internet connectivity?</h4>
           <p class="text-slate-600 leading-relaxed">
             Because orders are dispatched with atomic server-side brackets, OANDA’s matching engine holds the Stop-Loss and Take-Profit orders directly on their institutional infrastructure. Even if the local daemon process is terminated, open positions are closed by the broker matching engine at specified prices.
           </p>
         </div>
 
-        <div class="p-5 bg-slate-50 rounded-2xl space-y-2">
+        <div class="p-5.5 bg-slate-50/70 border border-slate-200/80 rounded-2xl hover:bg-white hover:border-slate-300 hover:shadow-md transition-all duration-200 space-y-2">
           <h4 class="font-display font-bold text-slate-900 text-sm">Why does the platform prohibit Martingale and grid averaging?</h4>
           <p class="text-slate-600 leading-relaxed">
             Martingale doubling and unbracketed grid averaging-down produce artificial high win rates while exposing accounts to catastrophic tail-risk liquidation. FOREX AI enforces a strict 1-trade-per-pair maximum with predetermined ATR volatility brackets and a hard daily loss ceiling.
           </p>
         </div>
 
-        <div class="p-5 bg-slate-50 rounded-2xl space-y-2">
+        <div class="p-5.5 bg-slate-50/70 border border-slate-200/80 rounded-2xl hover:bg-white hover:border-slate-300 hover:shadow-md transition-all duration-200 space-y-2">
           <h4 class="font-display font-bold text-slate-900 text-sm">How is the local LLM advisory kept separate from live trade dispatch?</h4>
           <p class="text-slate-600 leading-relaxed">
             The local LLM advisory service (Ollama DeepSeek-R1) runs in a bounded, non-blocking asynchronous queue with strict timeouts. It functions purely as an explanatory market intelligence stream and has zero execution authority to open orders, modify stop-losses, or adjust position sizing.
           </p>
         </div>
 
-        <div class="p-5 bg-slate-50 rounded-2xl space-y-2">
+        <div class="p-5.5 bg-slate-50/70 border border-slate-200/80 rounded-2xl hover:bg-white hover:border-slate-300 hover:shadow-md transition-all duration-200 space-y-2">
           <h4 class="font-display font-bold text-slate-900 text-sm">How are API credentials secured on multi-tenant servers?</h4>
           <p class="text-slate-600 leading-relaxed">
             OANDA broker credentials and API tokens are encrypted via AES-128-CBC using individual salted PBKDF2 keys before persistence into the database. Plaintext tokens are never logged or exposed in public API responses.
           </p>
         </div>
 
-        <div class="p-5 bg-slate-50 rounded-2xl space-y-2">
+        <div class="p-5.5 bg-slate-50/70 border border-slate-200/80 rounded-2xl hover:bg-white hover:border-slate-300 hover:shadow-md transition-all duration-200 space-y-2">
           <h4 class="font-display font-bold text-slate-900 text-sm">What are the supported deployment modes?</h4>
           <p class="text-slate-600 leading-relaxed">
             The platform operates in Practice Sandbox mode by default, interfacing with OANDA v20 practice accounts. Operators can configure custom OANDA API credentials or run simulated paper trading across all four currency corridors.
@@ -1127,33 +1227,35 @@
     <!-- ========================================================================= -->
     <!-- 10. FINAL CALL TO ACTION — ACCESS THE PLATFORM                            -->
     <!-- ========================================================================= -->
-    <section class="bg-[#0B0F17] rounded-3xl p-8 sm:p-12 text-white border border-slate-800/80 shadow-md relative overflow-hidden">
-      <!-- Background subtle gradient glow -->
-      <div class="absolute top-0 right-0 w-96 h-96 bg-[#FF5353]/10 rounded-full blur-3xl pointer-events-none"></div>
+    <section class="relative bg-[#0B0F17] rounded-3xl p-8 sm:p-14 text-white border border-slate-800 shadow-2xl overflow-hidden ring-1 ring-white/10">
+      <!-- Dynamic Ambient Radiant Orbs & Grid Texture -->
+      <div class="absolute top-0 right-0 w-[550px] h-[550px] bg-[#FF5353]/15 rounded-full blur-3xl pointer-events-none"></div>
+      <div class="absolute -bottom-20 -left-20 w-[500px] h-[500px] bg-[#6366F1]/15 rounded-full blur-3xl pointer-events-none"></div>
+      <div class="absolute inset-0 bg-[radial-gradient(#1e293b_1px,transparent_1px)] [background-size:24px_24px] opacity-40 pointer-events-none"></div>
 
-      <div class="relative z-10 max-w-3xl space-y-4">
-        <div class="inline-flex items-center gap-2 px-3 py-1 bg-white/10 rounded-full text-[10px] font-mono font-bold uppercase tracking-wider text-slate-200">
-          <span>●</span>
+      <div class="relative z-10 max-w-3xl space-y-5">
+        <div class="inline-flex items-center gap-2 px-3.5 py-1.5 bg-white/10 backdrop-blur-md rounded-full text-[10px] font-mono font-bold uppercase tracking-wider text-slate-200 border border-white/10 shadow-xs">
+          <span class="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse"></span>
           <span>Live Operational Workstation</span>
         </div>
 
-        <h2 class="text-2xl sm:text-4xl font-display font-extrabold tracking-tight">
+        <h2 class="text-2xl sm:text-4xl lg:text-5xl font-display font-extrabold tracking-tight leading-tight">
           Explore the Forex AI trading terminal.
         </h2>
 
-        <p class="text-sm text-slate-400 leading-relaxed font-sans max-w-2xl">
+        <p class="text-sm text-slate-300 leading-relaxed font-sans max-w-2xl">
           Inspect real-time 4-pair telemetry, audit bidirectional broker reconciliation ledgers, filter live terminal logs, and review quantitative strategy evaluations.
         </p>
 
         <div class="flex flex-wrap items-center gap-3 pt-3">
-          <a href="/dashboard" class="px-6 py-3.5 bg-[#FF5353] hover:bg-[#E03E3E] text-white font-bold text-xs uppercase tracking-wider rounded-full shadow-sm hover:shadow transition-all inline-flex items-center gap-2 min-h-[44px] cursor-pointer">
+          <a href="/dashboard" class="px-6 py-3.5 bg-gradient-to-r from-[#FF5353] to-[#E03E3E] hover:from-[#E03E3E] hover:to-[#C53030] text-white font-bold text-xs uppercase tracking-wider rounded-full shadow-card hover:shadow-glow-coral hover:-translate-y-0.5 transition-all inline-flex items-center gap-2 min-h-[44px] cursor-pointer">
             <span>Launch Trading Terminal</span>
             <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"/></svg>
           </a>
-          <a href="/login" class="px-5 py-3.5 bg-white/10 hover:bg-white/15 border border-white/10 text-white font-bold text-xs uppercase tracking-wider rounded-full transition-colors inline-flex items-center gap-1.5 min-h-[44px]">
+          <a href="/login" class="px-5 py-3.5 bg-white/10 hover:bg-white/15 border border-white/15 hover:border-white/30 text-white font-bold text-xs uppercase tracking-wider rounded-full backdrop-blur-sm transition-all inline-flex items-center gap-1.5 min-h-[44px]">
             <span>Operator Sign In</span>
           </a>
-          <a href="/register" class="px-5 py-3.5 bg-transparent hover:bg-white/5 border border-slate-700 text-slate-300 font-bold text-xs uppercase tracking-wider rounded-full transition-colors inline-flex items-center gap-1.5 min-h-[44px]">
+          <a href="/register" class="px-5 py-3.5 bg-transparent hover:bg-white/5 border border-slate-700 hover:border-slate-500 text-slate-300 hover:text-white font-bold text-xs uppercase tracking-wider rounded-full transition-all inline-flex items-center gap-1.5 min-h-[44px]">
             <span>Create Profile</span>
           </a>
         </div>
@@ -1297,9 +1399,9 @@
         const btn = document.getElementById('btn-node-' + p);
         if (btn) {
           if (p === pair) {
-            btn.className = 'py-2.5 px-3 text-left rounded-xl bg-white border-2 border-[#FF5353] font-bold text-[#FF5353] transition-all cursor-pointer shadow-sm ring-2 ring-red-50';
+            btn.className = 'py-2.5 px-3 text-left rounded-xl bg-white border-2 border-[#FF5353] font-bold text-[#FF5353] transition-all cursor-pointer shadow-xs ring-2 ring-red-50';
           } else {
-            btn.className = 'py-2.5 px-3 text-left rounded-xl bg-white border border-slate-200 hover:border-slate-400 font-bold text-slate-700 transition-all cursor-pointer shadow-xs';
+            btn.className = 'py-2.5 px-3 text-left rounded-xl bg-white border border-slate-200/90 hover:border-slate-400 font-bold text-slate-700 transition-all cursor-pointer shadow-xs hover:shadow-sm';
           }
         }
       });

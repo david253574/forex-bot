@@ -1301,14 +1301,14 @@ HTML_DASHBOARD = """<!DOCTYPE html>
             <div>
               <div class="flex items-center gap-2">
                 <h2 class="text-base sm:text-lg font-bold font-display text-slate-900">LOCAL AI MARKET INTELLIGENCE — ADVISORY ONLY</h2>
-                <span id="advisory-provider-pill" class="px-2 py-0.5 text-[10px] font-bold rounded-full bg-gradient-to-r from-sky-500/10 to-indigo-500/10 text-indigo-700">Google Gemini</span>
+                <span id="advisory-provider-pill" class="px-2.5 py-0.5 text-[10px] font-bold rounded-full bg-indigo-50 text-indigo-700">Dual-Engine (Gemini + Ollama)</span>
               </div>
-              <p class="text-[11px] text-slate-500">Autonomous macroeconomic &amp; quantitative multi-factor analysis powered by Gemini API. Zero execution authority; strictly decoupled from trading engine.</p>
+              <p class="text-[11px] text-slate-500">Autonomous macroeconomic &amp; quantitative multi-factor ensemble powered by Gemini Cloud + Local Ollama. Zero execution authority; strictly decoupled from trading engine.</p>
             </div>
           </div>
           <div class="flex items-center gap-2 text-xs">
             <span id="advisory-model-badge" class="px-2.5 py-1 font-mono text-[11px] rounded-full bg-slate-100 text-slate-700">
-              Model: Gemini 2.5 Flash
+              Gemini 2.5 Flash + Ollama Qwen2.5
             </span>
             <span id="advisory-status-badge" class="px-2.5 py-1 font-semibold rounded-full bg-emerald-50 text-emerald-700">
               ONLINE
@@ -1330,6 +1330,14 @@ HTML_DASHBOARD = """<!DOCTYPE html>
               <span id="adv-refresh-icon">⚡</span> Re-Analyze Pair
             </button>
           </div>
+        </div>
+
+        <!-- Perspective Switcher (Dual Mode View Controls) -->
+        <div id="adv-perspective-bar" class="flex items-center gap-2 pt-1 pb-1">
+          <span class="text-[11px] font-medium text-slate-400 font-mono">View:</span>
+          <button type="button" onclick="setAdvisoryPerspective('consensus')" id="adv-persp-consensus" class="px-2.5 py-0.5 text-[11px] font-semibold rounded-full bg-indigo-600 text-white cursor-pointer transition">🌐 Dual Consensus</button>
+          <button type="button" onclick="setAdvisoryPerspective('gemini')" id="adv-persp-gemini" class="px-2.5 py-0.5 text-[11px] font-semibold rounded-full bg-slate-100 text-slate-600 hover:bg-slate-200 cursor-pointer transition">☁️ Gemini Cloud</button>
+          <button type="button" onclick="setAdvisoryPerspective('ollama')" id="adv-persp-ollama" class="px-2.5 py-0.5 text-[11px] font-semibold rounded-full bg-slate-100 text-slate-600 hover:bg-slate-200 cursor-pointer transition">💻 Ollama Edge</button>
         </div>
 
         <!-- Active Advisory Content Container -->
@@ -1438,29 +1446,29 @@ HTML_DASHBOARD = """<!DOCTYPE html>
             <span class="w-3 h-3 rounded-full bg-indigo-500 animate-pulse"></span>
             <div>
               <div class="flex items-center gap-2">
-                <h3 class="text-base sm:text-lg font-bold font-display text-slate-900">Velotrade Gemini Market Copilot</h3>
-                <span class="px-2 py-0.5 text-[10px] font-bold rounded-full bg-indigo-50 text-indigo-700 border border-indigo-200">Gemini 2.5 Flash</span>
+                <h3 class="text-base sm:text-lg font-bold font-display text-slate-900">Velotrade Dual-Engine Market Copilot</h3>
+                <span class="px-2 py-0.5 text-[10px] font-bold rounded-full bg-indigo-50 text-indigo-700">Gemini Cloud + Local Ollama</span>
               </div>
-              <p class="text-[11px] text-slate-500">Ask quantitative questions grounded in your live portfolio, open positions, neural signals, and economic calendar.</p>
+              <p class="text-[11px] text-slate-500">Ask quantitative questions grounded in your live portfolio, open positions, neural signals, and dual cloud/edge AI ensemble.</p>
             </div>
           </div>
-          <span class="text-[11px] text-slate-400 font-mono">Live Telemetry Augmented</span>
+          <span class="text-[11px] text-slate-400 font-mono">Cloud &amp; Edge Augmented</span>
         </div>
 
         <!-- Quick Question Chips -->
         <div class="flex flex-wrap gap-2 text-xs">
-          <button type="button" onclick="askCopilotPrompt('Summarize my current portfolio exposure and daily drawdown risk.')" class="px-3 py-1.5 rounded-xl bg-slate-50 hover:bg-slate-100 text-slate-700 border border-slate-200 cursor-pointer transition">📊 Portfolio Exposure &amp; Drawdown</button>
-          <button type="button" onclick="askCopilotPrompt('Why is EUR/USD execution blocked right now? Explain the spread and news context.')" class="px-3 py-1.5 rounded-xl bg-slate-50 hover:bg-slate-100 text-slate-700 border border-slate-200 cursor-pointer transition">⚡ Why is EUR/USD Blocked?</button>
-          <button type="button" onclick="askCopilotPrompt('Are there any high-impact economic news events scheduled today that might trigger NewsShield?')" class="px-3 py-1.5 rounded-xl bg-slate-50 hover:bg-slate-100 text-slate-700 border border-slate-200 cursor-pointer transition">🗓️ Upcoming Macro Calendar</button>
-          <button type="button" onclick="askCopilotPrompt('Explain the neural model thesis and current position for USD/JPY.')" class="px-3 py-1.5 rounded-xl bg-slate-50 hover:bg-slate-100 text-slate-700 border border-slate-200 cursor-pointer transition">📈 USD/JPY Neural Deep Dive</button>
+          <button type="button" onclick="askCopilotPrompt('Compare the Gemini Cloud and Ollama Local model perspectives across EUR/USD and USD/JPY.')" class="px-3 py-1.5 rounded-xl bg-slate-50 hover:bg-slate-100 text-slate-700 border border-slate-100 cursor-pointer transition">🌐 Dual Consensus Deep Dive</button>
+          <button type="button" onclick="askCopilotPrompt('Summarize my current portfolio exposure and daily drawdown risk.')" class="px-3 py-1.5 rounded-xl bg-slate-50 hover:bg-slate-100 text-slate-700 border border-slate-100 cursor-pointer transition">📊 Portfolio Exposure &amp; Drawdown</button>
+          <button type="button" onclick="askCopilotPrompt('Why is EUR/USD execution blocked right now? Explain the spread and news context.')" class="px-3 py-1.5 rounded-xl bg-slate-50 hover:bg-slate-100 text-slate-700 border border-slate-100 cursor-pointer transition">⚡ Why is EUR/USD Blocked?</button>
+          <button type="button" onclick="askCopilotPrompt('Are there any high-impact economic news events scheduled today that might trigger NewsShield?')" class="px-3 py-1.5 rounded-xl bg-slate-50 hover:bg-slate-100 text-slate-700 border border-slate-100 cursor-pointer transition">🗓️ Upcoming Macro Calendar</button>
         </div>
 
         <!-- Copilot Chat Stream -->
-        <div id="copilot-chat-history" class="p-4 rounded-xl bg-slate-50/70 border border-slate-200 max-h-96 overflow-y-auto space-y-3 text-xs font-sans">
+        <div id="copilot-chat-history" class="p-4 rounded-xl bg-slate-50/70 border border-slate-100 max-h-96 overflow-y-auto space-y-3 text-xs font-sans">
           <div class="flex gap-2.5 items-start">
             <div class="w-6 h-6 rounded-full bg-indigo-600 text-white flex items-center justify-center font-bold text-[10px] shrink-0">AI</div>
-            <div class="p-3 bg-white rounded-xl border border-slate-200 text-slate-700 shadow-xs max-w-2xl leading-relaxed">
-              Hello! I am your <strong>Velotrade Gemini Market Copilot</strong>, connected directly to your real-time trading engine, risk guards, and portfolio ledger. Click a suggestion above or ask me anything about your positions, models, or market conditions.
+            <div class="p-3 bg-white rounded-xl border border-slate-100 text-slate-700 shadow-xs max-w-2xl leading-relaxed">
+              Hello! I am your <strong>Velotrade Dual-Engine Market Copilot</strong>, connected directly to Google Gemini cloud macro intelligence, local Ollama edge analytics, and real-time risk guards. Click a suggestion above or ask me anything about your positions, models, or market consensus.
             </div>
           </div>
         </div>
@@ -2915,6 +2923,7 @@ HTML_DASHBOARD = """<!DOCTYPE html>
 
     let activeAdvisoryPair = 'EURUSD';
     let advisoryCache = {};
+    let advisoryPerspective = 'consensus'; // 'consensus' | 'gemini' | 'ollama'
 
     function selectAdvisoryPair(pair) {
       activeAdvisoryPair = pair;
@@ -2931,12 +2940,27 @@ HTML_DASHBOARD = """<!DOCTYPE html>
       renderAdvisoryContent();
     }
 
+    function setAdvisoryPerspective(persp) {
+      advisoryPerspective = persp;
+      ['consensus', 'gemini', 'ollama'].forEach(p => {
+        const btn = document.getElementById('adv-persp-' + p);
+        if (btn) {
+          if (p === persp) {
+            btn.className = 'px-2.5 py-0.5 text-[11px] font-semibold rounded-full bg-indigo-600 text-white cursor-pointer transition';
+          } else {
+            btn.className = 'px-2.5 py-0.5 text-[11px] font-semibold rounded-full bg-slate-100 text-slate-600 hover:bg-slate-200 cursor-pointer transition';
+          }
+        }
+      });
+      renderAdvisoryContent();
+    }
+
     function renderAdvisoryContent() {
       const panel = document.getElementById('advisory-content-panel');
       if (!panel) return;
-      const adv = advisoryCache[activeAdvisoryPair];
+      const rawAdv = advisoryCache[activeAdvisoryPair];
 
-      if (!adv) {
+      if (!rawAdv) {
         panel.innerHTML = `
           <div class="p-6 bg-slate-50 rounded-xl text-center text-xs text-slate-500">
             Advisory evaluation data for ${activeAdvisoryPair} is pending next scheduled cycle.
@@ -2945,9 +2969,20 @@ HTML_DASHBOARD = """<!DOCTYPE html>
         return;
       }
 
-      const isLong = (adv.engine_signal || '').includes('LONG');
-      const isShort = (adv.engine_signal || '').includes('SHORT');
-      const sigColor = isLong ? 'bg-emerald-100 text-emerald-800 border-emerald-200' : (isShort ? 'bg-rose-100 text-rose-800 border-rose-200' : 'bg-slate-100 text-slate-700 border-slate-200');
+      const isDual = rawAdv.provider === 'dual' || (rawAdv.gemini && rawAdv.ollama) || rawAdv.dual_consensus;
+      
+      let adv = rawAdv;
+      if (isDual) {
+        if (advisoryPerspective === 'gemini' && rawAdv.gemini) {
+          adv = rawAdv.gemini;
+        } else if (advisoryPerspective === 'ollama' && rawAdv.ollama) {
+          adv = rawAdv.ollama;
+        }
+      }
+
+      const isLong = (adv.engine_signal || '').includes('LONG') || (adv.engine_signal || '').includes('BUY');
+      const isShort = (adv.engine_signal || '').includes('SHORT') || (adv.engine_signal || '').includes('SELL');
+      const sigColor = isLong ? 'bg-emerald-100 text-emerald-800' : (isShort ? 'bg-rose-100 text-rose-800' : 'bg-slate-100 text-slate-700');
 
       const supportingItems = (adv.supporting_evidence && adv.supporting_evidence.length)
         ? adv.supporting_evidence.map(item => `
@@ -2969,7 +3004,7 @@ HTML_DASHBOARD = """<!DOCTYPE html>
 
       const riskItems = (adv.risk_context && adv.risk_context.length)
         ? adv.risk_context.map(item => `
-            <div class="p-2.5 rounded-lg bg-white border border-slate-200/80 text-slate-600 text-[11px] leading-relaxed">
+            <div class="p-2.5 rounded-lg bg-white border border-slate-100 text-slate-600 text-[11px] leading-relaxed">
               • ${item}
             </div>
           `).join('')
@@ -2977,7 +3012,7 @@ HTML_DASHBOARD = """<!DOCTYPE html>
 
       const scenarioItems = (adv.alternative_scenarios && adv.alternative_scenarios.length)
         ? adv.alternative_scenarios.map(scen => `
-            <div class="p-2.5 rounded-lg bg-white border border-slate-200/80 text-slate-700 text-[11px] leading-relaxed">
+            <div class="p-2.5 rounded-lg bg-white border border-slate-100 text-slate-700 text-[11px] leading-relaxed">
               <span class="font-semibold text-slate-900">Scenario:</span> ${scen}
             </div>
           `).join('')
@@ -2985,18 +3020,105 @@ HTML_DASHBOARD = """<!DOCTYPE html>
 
       const evalTime = adv.timestamp_utc ? new Date(adv.timestamp_utc).toLocaleTimeString() : 'Recently';
       const duration = adv.inference_duration_sec ? `${adv.inference_duration_sec}s latency` : '';
-      const pName = adv.provider === 'gemini' ? 'Google Gemini' : (adv.provider === 'ollama' ? 'Local Ollama' : 'AI Engine');
+      
+      let pName = 'Dual Consensus';
+      if (advisoryPerspective === 'gemini') pName = 'Google Gemini Cloud';
+      else if (advisoryPerspective === 'ollama') pName = 'Local Ollama Edge';
+      else if (adv.provider === 'gemini') pName = 'Google Gemini';
+      else if (adv.provider === 'ollama') pName = 'Local Ollama';
+      
       const modelTag = adv.model_name ? `${pName} • ${adv.model_name}` : pName;
 
+      let consensusBannerHtml = '';
+      if (isDual && advisoryPerspective === 'consensus' && rawAdv.dual_consensus) {
+        const c = rawAdv.dual_consensus;
+        if (c.status === 'CONVERGENT') {
+          consensusBannerHtml = `
+            <div class="p-3 bg-emerald-50 rounded-xl border border-emerald-100 flex flex-col sm:flex-row sm:items-center justify-between gap-2">
+              <div class="flex items-center gap-2">
+                <span class="text-base">✨</span>
+                <span class="font-bold text-emerald-950 text-xs">Dual Consensus: Convergent [ ${rawAdv.engine_signal || 'FLAT'} ]</span>
+              </div>
+              <span class="text-[11px] text-emerald-700 font-mono">${c.detail || 'Both Cloud and Local models agree'}</span>
+            </div>
+          `;
+        } else if (c.status === 'DIVERGENT') {
+          consensusBannerHtml = `
+            <div class="p-3 bg-amber-50 rounded-xl border border-amber-100 flex flex-col sm:flex-row sm:items-center justify-between gap-2">
+              <div class="flex items-center gap-2">
+                <span class="text-base">⚠️</span>
+                <span class="font-bold text-amber-950 text-xs">Dual Divergence Detected</span>
+              </div>
+              <span class="text-[11px] text-amber-700 font-mono">${c.detail || 'Cloud and edge engines identify contrasting market factors'}</span>
+            </div>
+          `;
+        } else {
+          consensusBannerHtml = `
+            <div class="p-3 bg-indigo-50 rounded-xl border border-indigo-100 flex flex-col sm:flex-row sm:items-center justify-between gap-2">
+              <div class="flex items-center gap-2">
+                <span class="text-base">🔄</span>
+                <span class="font-bold text-indigo-950 text-xs">Single Engine Active</span>
+              </div>
+              <span class="text-[11px] text-indigo-700 font-mono">${c.detail || ''}</span>
+            </div>
+          `;
+        }
+      }
+
+      let comparisonCardsHtml = '';
+      if (isDual && advisoryPerspective === 'consensus' && rawAdv.gemini && rawAdv.ollama) {
+        const geminiSig = rawAdv.gemini.engine_signal || 'FLAT';
+        const ollamaSig = rawAdv.ollama.engine_signal || 'FLAT';
+        const gLong = geminiSig.includes('LONG') || geminiSig.includes('BUY');
+        const gShort = geminiSig.includes('SHORT') || geminiSig.includes('SELL');
+        const gColor = gLong ? 'bg-emerald-50 text-emerald-700' : (gShort ? 'bg-rose-50 text-rose-700' : 'bg-slate-100 text-slate-700');
+        
+        const oLong = ollamaSig.includes('LONG') || ollamaSig.includes('BUY');
+        const oShort = ollamaSig.includes('SHORT') || ollamaSig.includes('SELL');
+        const oColor = oLong ? 'bg-emerald-50 text-emerald-700' : (oShort ? 'bg-rose-50 text-rose-700' : 'bg-slate-100 text-slate-700');
+
+        comparisonCardsHtml = `
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-3.5">
+            <div class="p-3.5 bg-white rounded-xl border border-slate-100 space-y-2">
+              <div class="flex items-center justify-between">
+                <span class="font-bold text-indigo-900 text-[11px] uppercase tracking-wide flex items-center gap-1.5">
+                  <span>☁️</span> Google Gemini Cloud (Macro &amp; Fundamental)
+                </span>
+                <span class="px-2 py-0.5 rounded-full text-[10px] font-bold ${gColor}">${geminiSig}</span>
+              </div>
+              <p class="text-slate-600 text-[11px] leading-relaxed">${rawAdv.gemini.market_summary || 'Global macroeconomic analysis'}</p>
+              <div class="pt-1 flex items-center justify-between text-[10px] text-slate-400 font-mono">
+                <span>Model: ${rawAdv.gemini.model_name || 'gemini-2.5-flash'}</span>
+                <span>Status: ${rawAdv.gemini.analysis_status || 'SUCCESS'}</span>
+              </div>
+            </div>
+
+            <div class="p-3.5 bg-white rounded-xl border border-slate-100 space-y-2">
+              <div class="flex items-center justify-between">
+                <span class="font-bold text-emerald-900 text-[11px] uppercase tracking-wide flex items-center gap-1.5">
+                  <span>💻</span> Local Ollama Edge (Pattern &amp; Momentum)
+                </span>
+                <span class="px-2 py-0.5 rounded-full text-[10px] font-bold ${oColor}">${ollamaSig}</span>
+              </div>
+              <p class="text-slate-600 text-[11px] leading-relaxed">${rawAdv.ollama.market_summary || 'Local technical structural analysis'}</p>
+              <div class="pt-1 flex items-center justify-between text-[10px] text-slate-400 font-mono">
+                <span>Model: ${rawAdv.ollama.model_name || 'qwen2.5:1.5b'}</span>
+                <span>Status: ${rawAdv.ollama.analysis_status || 'SUCCESS'}</span>
+              </div>
+            </div>
+          </div>
+        `;
+      }
+
       panel.innerHTML = `
-        <div class="p-5 bg-slate-50/70 rounded-2xl border border-slate-200/80 space-y-4 text-xs">
+        <div class="p-5 bg-slate-50/70 rounded-2xl border border-slate-100 space-y-4 text-xs">
           
           <!-- Outlook Header -->
-          <div class="flex flex-col sm:flex-row sm:items-center justify-between border-b border-slate-200 pb-3 gap-2">
+          <div class="flex flex-col sm:flex-row sm:items-center justify-between border-b border-slate-200/60 pb-3 gap-2">
             <div class="flex items-center gap-2.5">
               <span class="font-bold text-slate-900 text-sm font-display">${activeAdvisoryPair} Market Outlook</span>
-              <span class="px-2.5 py-0.5 rounded-full font-bold text-[10px] border ${sigColor}">${adv.engine_signal || 'FLAT'}</span>
-              <span class="px-2 py-0.5 rounded-full bg-slate-200 text-slate-700 font-mono text-[10px]">${adv.analysis_status || 'SUCCESS'}</span>
+              <span class="px-2.5 py-0.5 rounded-full font-bold text-[10px] ${sigColor}">${adv.engine_signal || 'FLAT'}</span>
+              <span class="px-2 py-0.5 rounded-full bg-slate-200/70 text-slate-700 font-mono text-[10px]">${adv.analysis_status || 'SUCCESS'}</span>
             </div>
             <div class="flex items-center gap-2 font-mono text-slate-400 text-[11px]">
               <span>${modelTag}</span>
@@ -3005,15 +3127,21 @@ HTML_DASHBOARD = """<!DOCTYPE html>
             </div>
           </div>
 
+          <!-- Dual Consensus Banner -->
+          ${consensusBannerHtml}
+
+          <!-- Side-by-Side Perspectives -->
+          ${comparisonCardsHtml}
+
           <!-- Market Summary Narrative -->
-          <div class="p-3.5 bg-white rounded-xl border border-slate-200/90 text-slate-700 leading-relaxed font-sans shadow-xs">
+          <div class="p-3.5 bg-white rounded-xl border border-slate-100 text-slate-700 leading-relaxed font-sans">
             <p class="font-bold text-slate-900 mb-1 text-[11px] uppercase tracking-wide font-mono text-indigo-700">Multi-Factor Market Structure &amp; Volatility</p>
             ${adv.market_summary || adv.analysis || 'Consolidating market action.'}
           </div>
 
           <!-- Dual Column: Supporting vs Conflicting Evidence -->
           <div class="grid grid-cols-1 md:grid-cols-2 gap-3.5">
-            <div class="p-3.5 bg-emerald-50/50 rounded-xl border border-emerald-100/80 space-y-2">
+            <div class="p-3.5 bg-emerald-50/50 rounded-xl border border-emerald-100/60 space-y-2">
               <h4 class="font-bold text-emerald-900 text-[11px] flex items-center gap-1.5 uppercase tracking-wide">
                 <span>Supporting Quantitative Evidence</span>
               </h4>
@@ -3021,7 +3149,7 @@ HTML_DASHBOARD = """<!DOCTYPE html>
                 ${supportingItems}
               </ul>
             </div>
-            <div class="p-3.5 bg-amber-50/50 rounded-xl border border-amber-100/80 space-y-2">
+            <div class="p-3.5 bg-amber-50/50 rounded-xl border border-amber-100/60 space-y-2">
               <h4 class="font-bold text-amber-900 text-[11px] flex items-center gap-1.5 uppercase tracking-wide">
                 <span>Conflicting Evidence &amp; Execution Friction</span>
               </h4>
@@ -3044,7 +3172,7 @@ HTML_DASHBOARD = """<!DOCTYPE html>
           </div>
 
           <!-- Advisory Summary & Compliance -->
-          <div class="p-3.5 bg-indigo-50/50 rounded-xl border border-indigo-100 text-slate-700 space-y-1.5">
+          <div class="p-3.5 bg-indigo-50/50 rounded-xl border border-indigo-100/60 text-slate-700 space-y-1.5">
             <div class="flex items-center justify-between text-[11px]">
               <span class="font-bold text-indigo-950 font-display">Advisory Conclusion</span>
               <span class="text-amber-700 font-medium">⚠️ Advisory Only • Zero Execution Authority</span>
@@ -3054,6 +3182,7 @@ HTML_DASHBOARD = """<!DOCTYPE html>
 
         </div>
       `;
+    }
     }
 
     async function triggerAdvisoryRefresh() {
@@ -3191,6 +3320,7 @@ HTML_DASHBOARD = """<!DOCTYPE html>
       const badge = document.getElementById('advisory-status-badge');
       const modelBadge = document.getElementById('advisory-model-badge');
       const providerPill = document.getElementById('advisory-provider-pill');
+      const perspBar = document.getElementById('adv-perspective-bar');
 
       if (advData.service_status === 'healthy' || advData.is_available) {
         if (indicator) indicator.className = 'h-3 w-3 rounded-full bg-emerald-500 animate-pulse';
@@ -3200,13 +3330,34 @@ HTML_DASHBOARD = """<!DOCTYPE html>
         }
       }
 
-      const pName = advData.provider === 'gemini' ? 'Google Gemini' : (advData.provider === 'ollama' ? 'Local Ollama' : 'AI Advisory');
+      const isDual = advData.provider === 'dual' || advData.dual_mode;
       if (providerPill) {
-        providerPill.textContent = pName;
+        if (isDual) {
+          providerPill.textContent = 'Dual-Engine: Gemini Cloud + Local Ollama';
+          providerPill.className = 'px-2.5 py-0.5 text-[10px] font-bold rounded-full bg-indigo-50 text-indigo-700';
+        } else if (advData.provider === 'gemini') {
+          providerPill.textContent = 'Google Gemini Cloud';
+          providerPill.className = 'px-2.5 py-0.5 text-[10px] font-bold rounded-full bg-sky-50 text-sky-700';
+        } else {
+          providerPill.textContent = 'Local Ollama Edge';
+          providerPill.className = 'px-2.5 py-0.5 text-[10px] font-bold rounded-full bg-emerald-50 text-emerald-700';
+        }
       }
 
-      if (modelBadge && advData.model_name) {
-        modelBadge.textContent = 'Model: ' + (advData.provider === 'gemini' ? 'Gemini 2.5 Flash' : advData.model_name);
+      if (modelBadge) {
+        if (isDual) {
+          modelBadge.textContent = 'Gemini 2.5 Flash + Ollama Qwen2.5';
+        } else {
+          modelBadge.textContent = 'Model: ' + (advData.model_name || 'AI Engine');
+        }
+      }
+
+      if (perspBar) {
+        if (isDual) {
+          perspBar.classList.remove('hidden');
+        } else {
+          perspBar.classList.add('hidden');
+        }
       }
 
       if (advData.advisories) {
@@ -3674,9 +3825,12 @@ def get_advisory_intelligence_data(config_path: str = "broker_config.json") -> D
         advisories = agent.get_all_advisories()
         return {
             "service_status": "healthy" if status.get("is_available") else "standby",
-            "provider": status.get("provider", "gemini"),
-            "model_name": status.get("model_name", "gemini-2.5-flash"),
+            "provider": status.get("provider", "dual"),
+            "model_name": status.get("model_name", "Gemini + Ollama"),
             "is_available": status.get("is_available", False),
+            "dual_mode": status.get("dual_mode", False),
+            "gemini_available": status.get("gemini_available", False),
+            "ollama_available": status.get("ollama_available", False),
             "status_details": status,
             "advisories": advisories,
             "is_advisory_only": True,
