@@ -1,0 +1,6 @@
+Traceback (most recent call last):
+  File "/home/david/Desktop/forex'/run_backtest.py", line 11, in <module>
+    from backtest import main
+  File "/home/david/Desktop/forex'/backtest.py", line 10, in <module>
+    import matplotlib.pyplot as plt
+ModuleNotFoundError: No module named 'matplotlib'

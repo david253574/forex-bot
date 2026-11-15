@@ -1,0 +1,14 @@
+numpy>=1.26.0
+pandas>=2.2.0
+scikit-learn>=1.5.0
+ta>=0.11.0
+torch>=2.4.0
+gymnasium>=0.29.1
+matplotlib>=3.9.0
+cryptography>=42.0.0
+bcrypt>=4.1.0
+psycopg2-binary>=2.9.9
+fastapi>=0.110.0
+uvicorn>=0.28.0
+python-multipart>=0.0.9
+

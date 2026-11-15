@@ -1,0 +1,52 @@
+# Security, Secrets & Local Credentials
+.env
+*.token
+*.key
+*.db
+*.sqlite
+*.sqlite3
+broker_config.json
+
+# Runtime Process State & State Caches
+.run/
+*.pid
+advisory_cache.json
+news_calendar_cache.json
+paper_ledger.json
+portfolio_ledger.json
+
+# Logs
+*.log
+*.log.*
+
+# Python Cache & Build Artifacts
+__pycache__/
+*.py[cod]
+*$py.class
+*.pytest_cache/
+.coverage
+htmlcov/
+.mypy_cache/
+
+# Virtual Environments
+env/
+venv/
+ENV/
+env.bak/
+venv.bak/
+
+# Large Binary Distributions
+dist/
+
+# Backup, Temporary & Swap Files
+*.bak*
+*.tmp
+*~
+*.swp
+*.swo
+supabase/.temp/
+
+# Screenshot Artifacts & Visual Audits
+*.png
+responsive_audit/
+velotrade_audit/

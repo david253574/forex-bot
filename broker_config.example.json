@@ -1,0 +1,48 @@
+{
+  "broker": "oanda",
+  "environment": "practice",
+  "oanda": {
+    "api_token": "YOUR_OANDA_V20_API_TOKEN",
+    "account_id": "YOUR_OANDA_ACCOUNT_ID"
+  },
+  "guards": {
+    "spread_guard_enabled": true,
+    "max_spread_pips": {
+      "EURUSD": 2.5,
+      "GBPUSD": 3.0,
+      "USDJPY": 3.0,
+      "AUDUSD": 3.5
+    },
+    "news_shield_enabled": true,
+    "news_shield": {
+      "provider": "finnhub",
+      "api_key_env_var": "FINNHUB_API_KEY",
+      "refresh_interval_seconds": 14400,
+      "max_cache_age_seconds": 21600,
+      "blackout_minutes_before": 30,
+      "blackout_minutes_after": 15,
+      "fail_safe_policy": "BLOCK_NEW_ENTRIES"
+    },
+    "daily_drawdown_limit_pct": 3.0
+  },
+  "ai_agent": {
+    "enabled": true,
+    "provider": "gemini",
+    "gemini": {
+      "model": "gemini-2.5-flash",
+      "timeout_seconds": 25.0,
+      "temperature": 0.2
+    },
+    "ollama": {
+      "base_url": "http://localhost:11434",
+      "model": "qwen2.5:1.5b",
+      "timeout_seconds": 30.0,
+      "temperature": 0.2
+    }
+  },
+  "notifications": {
+    "discord_webhook_url": "",
+    "telegram_bot_token": "",
+    "telegram_chat_id": ""
+  }
+}

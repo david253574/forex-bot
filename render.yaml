@@ -1,0 +1,20 @@
+services:
+  - type: web
+    name: forex-ai-trading-platform
+    env: docker
+    dockerfilePath: Dockerfile
+    plan: starter
+    region: oregon
+    envVars:
+      - key: PORT
+        value: 8080
+      - key: TRADING_MODE
+        value: practice
+      - key: ALLOW_LIVE_TRADING
+        value: "false"
+      - key: DATABASE_URL
+        sync: false # Set in Render Dashboard from Supabase connection string
+      - key: CREDENTIAL_ENCRYPTION_KEY
+        generateValue: true # Render will generate a unique secret encryption key
+      - key: FINNHUB_API_KEY
+        sync: false

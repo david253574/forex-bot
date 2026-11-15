@@ -1,0 +1,288 @@
+<!DOCTYPE html>
+<html lang="en" class="h-full bg-[#F8FAFC] text-slate-900">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Operator Sign In — Forex AI Super-Ensemble</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600;700&family=IBM+Plex+Sans:wght@400;500;600;700&family=Manrope:wght@500;600;700;800&display=swap" rel="stylesheet">
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            display: ['Manrope', 'sans-serif'],
+            sans: ['IBM Plex Sans', '-apple-system', 'BlinkMacSystemFont', 'sans-serif'],
+            mono: ['IBM Plex Mono', 'monospace'],
+          },
+          colors: {
+            brand: {
+              coral: '#FF5353',
+              'coral-hover': '#E03E3E',
+              obsidian: '#0B0F17',
+              emerald: '#059669',
+              amber: '#D97706',
+              rose: '#E11D48',
+            }
+          },
+          boxShadow: {
+            'card': '0 1px 3px 0 rgba(15, 23, 42, 0.02), 0 1px 2px -1px rgba(15, 23, 42, 0.02)',
+            'card-hover': '0 4px 12px -2px rgba(15, 23, 42, 0.04), 0 2px 4px -2px rgba(15, 23, 42, 0.02)',
+          }
+        }
+      }
+    }
+  </script>
+</head>
+<body class="min-h-full flex flex-col justify-between font-sans selection:bg-[#FF5353] selection:text-white bg-[#F8FAFC]">
+
+  <!-- Top Institutional Bar (Velotrade Dark Obsidian Accent) -->
+  <div class="bg-[#0B0F17] text-slate-300 text-[11px] font-mono py-2 px-4 border-b border-slate-800">
+    <div class="max-w-6xl mx-auto flex items-center justify-between">
+      <div class="flex items-center gap-2">
+        <span class="inline-block w-2 h-2 rounded-full bg-[#059669] animate-pulse"></span>
+        <span class="text-slate-200 font-semibold tracking-wider uppercase text-[10px]">Institutional Gateway Active</span>
+        <span class="hidden sm:inline text-slate-500">•</span>
+        <span class="hidden sm:inline text-slate-400 text-[10px]">OANDA v20 Rest Protocol v3.0.2</span>
+      </div>
+      <div class="flex items-center gap-3 text-slate-400 text-[10px]">
+        <span>AES-256 SALTED ISOLATION</span>
+        <span class="text-slate-600">|</span>
+        <span class="text-emerald-400 font-medium">99.99% UPTIME</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- Main Navbar -->
+  <header class="bg-white/95 backdrop-blur-md border-b border-slate-200 sticky top-0 z-40 transition-all">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 h-16 flex items-center justify-between">
+      <a href="/" class="flex items-center gap-2 group">
+        <div class="w-8 h-8 rounded-lg bg-[#0B0F17] flex items-center justify-center text-white font-display font-extrabold text-sm shadow-sm">
+          FX
+        </div>
+        <span class="font-display text-lg font-extrabold tracking-tight text-slate-900 group-hover:text-[#FF5353] transition-colors">
+          Forex AI<span class="text-[#FF5353]">.</span>
+        </span>
+        <span class="hidden sm:inline-block ml-2 px-2 py-0.5 rounded-full text-[10px] font-mono font-medium bg-slate-100 text-slate-600 border border-slate-200">
+          OPERATOR ACCESS
+        </span>
+      </a>
+
+      <div class="flex items-center gap-4">
+        <a href="/" class="text-xs font-semibold text-slate-600 hover:text-slate-900 flex items-center gap-1.5 transition-colors">
+          <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 19l-7-7m0 0l7-7m-7 7h18"/></svg>
+          <span class="hidden sm:inline">Public Overview</span>
+        </a>
+        <a href="/register" class="inline-flex items-center justify-center px-4 py-2 rounded-full border border-slate-300 text-xs font-bold text-slate-700 bg-white hover:bg-slate-50 transition-colors shadow-sm">
+          Register
+        </a>
+      </div>
+    </div>
+  </header>
+
+  <!-- Login Main Container -->
+  <main class="flex-1 flex items-center justify-center px-4 py-12 sm:py-16">
+    <div class="w-full max-w-md">
+
+      <!-- Login Card -->
+      <div class="bg-white border border-slate-200 rounded-2xl p-6 sm:p-8 shadow-card relative overflow-hidden">
+        <!-- Top coral highlight bar -->
+        <div class="absolute top-0 left-0 right-0 h-1.5 bg-[#FF5353]"></div>
+
+        <div class="mb-6 pt-1">
+          <div class="flex items-center justify-between mb-2">
+            <span class="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full text-[10px] font-mono font-bold uppercase tracking-wider bg-slate-100 text-slate-700 border border-slate-200">
+              <span class="w-1.5 h-1.5 rounded-full bg-[#059669]"></span>
+              Secure Authentication
+            </span>
+            <span class="font-mono text-[10px] text-slate-400">SESSION v2.4</span>
+          </div>
+          <h1 class="text-2xl font-display font-extrabold text-slate-900 tracking-tight">Operator Sign In</h1>
+          <p class="text-xs text-slate-500 mt-1.5 leading-relaxed">
+            Enter your credentials to access 4-pair ensemble telemetry, live risk metrics, and broker execution workstation.
+          </p>
+        </div>
+
+        <!-- Error Alert -->
+        <div id="errorBanner" class="hidden mb-5 p-3.5 bg-rose-50 border border-rose-200 rounded-xl text-rose-800 text-xs flex items-start gap-3">
+          <svg class="w-4 h-4 text-rose-600 shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4m0 4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+          <span id="errorMessage" class="flex-1 font-medium">Invalid credentials.</span>
+        </div>
+
+        <!-- Success Alert -->
+        <div id="successBanner" class="hidden mb-5 p-3.5 bg-emerald-50 border border-emerald-200 rounded-xl text-emerald-800 text-xs flex items-start gap-3">
+          <svg class="w-4 h-4 text-emerald-600 shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>
+          <span id="successMessage" class="flex-1 font-medium">Clearance verified. Launching terminal...</span>
+        </div>
+
+        <!-- Form -->
+        <form id="loginForm" class="space-y-4">
+          <div>
+            <label for="email" class="block text-xs font-bold uppercase tracking-wider text-slate-700 mb-1.5">Operator Email</label>
+            <div class="relative">
+              <input type="email" id="email" name="email" required autocomplete="email" placeholder="operator@quant.institution.com"
+                class="w-full bg-slate-50 border border-slate-200 rounded-xl px-4 py-2.5 text-xs font-sans text-slate-900 placeholder:text-slate-400 focus:bg-white focus:outline-none focus:ring-2 focus:ring-[#FF5353]/20 focus:border-[#FF5353] transition-all">
+            </div>
+          </div>
+
+          <div>
+            <div class="flex items-center justify-between mb-1.5">
+              <label for="password" class="block text-xs font-bold uppercase tracking-wider text-slate-700">Access Key / Password</label>
+            </div>
+            <div class="relative">
+              <input type="password" id="password" name="password" required autocomplete="current-password" placeholder="••••••••••••"
+                class="w-full bg-slate-50 border border-slate-200 rounded-xl px-4 py-2.5 text-xs font-sans text-slate-900 placeholder:text-slate-400 focus:bg-white focus:outline-none focus:ring-2 focus:ring-[#FF5353]/20 focus:border-[#FF5353] transition-all pr-10">
+              <button type="button" id="togglePasswordBtn" class="absolute inset-y-0 right-0 pr-3 flex items-center text-slate-400 hover:text-slate-600 cursor-pointer" title="Toggle password visibility">
+                <svg id="eyeIcon" class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"/><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z"/></svg>
+                <svg id="eyeOffIcon" class="w-4 h-4 hidden" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13.875 18.825A10.05 10.05 0 0112 19c-4.478 0-8.268-2.943-9.543-7a9.97 9.97 0 011.563-3.029m5.858.908a3 3 0 114.243 4.243M9.878 9.878l4.242 4.242M9.88 9.88l-3.29-3.29m7.532 7.532l3.29 3.29M3 3l18 18"/></svg>
+              </button>
+            </div>
+          </div>
+
+          <div class="flex items-center justify-between text-xs pt-1">
+            <label class="flex items-center gap-2 cursor-pointer text-slate-600 hover:text-slate-900 select-none">
+              <input type="checkbox" id="remember" name="remember" checked class="accent-[#FF5353] rounded border-slate-300 w-4 h-4">
+              <span class="text-xs">Keep session active for 7 days</span>
+            </label>
+          </div>
+
+          <button type="submit" id="submitBtn"
+            class="w-full mt-2 py-3.5 bg-[#FF5353] hover:bg-[#E03E3E] text-white font-bold rounded-full text-xs uppercase tracking-wider transition-all shadow-xs hover:shadow-sm flex items-center justify-center gap-2 cursor-pointer">
+            <span id="btnText">Sign In to Terminal</span>
+            <svg id="btnSpinner" class="hidden w-4 h-4 animate-spin text-white" fill="none" viewBox="0 0 24 24"><circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle><path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path></svg>
+          </button>
+        </form>
+
+        <!-- Divider & Register Link -->
+        <div class="mt-6 pt-5 border-t border-slate-100 flex flex-col gap-2 text-center text-xs">
+          <p class="text-slate-500">
+            Need an institutional trading profile?
+            <a href="/register" class="text-[#FF5353] hover:text-[#E03E3E] font-bold ml-1 transition-colors">
+              Create account &rarr;
+            </a>
+          </p>
+        </div>
+
+      </div>
+
+      <!-- Security Trust Badge -->
+      <div class="mt-6 p-4 rounded-xl bg-white border border-slate-200/80 shadow-sm text-center">
+        <div class="flex items-center justify-center gap-2 mb-1.5">
+          <svg class="w-4 h-4 text-[#059669]" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"/></svg>
+          <span class="text-xs font-bold text-slate-800">Enterprise Security Standard</span>
+        </div>
+        <p class="font-mono text-[10px] text-slate-500 leading-tight">
+          Protected by AES-256 Salted Encryption • OANDA v20 Rest Protocol • Multi-Tenant Account Isolation
+        </p>
+      </div>
+
+    </div>
+  </main>
+
+  <!-- Velotrade-style Institutional Footer -->
+  <footer class="border-t border-slate-200 bg-white py-6 text-center text-xs text-slate-500">
+    <div class="max-w-6xl mx-auto px-4 flex flex-col sm:flex-row items-center justify-between gap-3">
+      <div class="flex items-center gap-2">
+        <span class="font-display font-extrabold text-slate-900">Forex AI<span class="text-[#FF5353]">.</span></span>
+        <span class="text-slate-400">|</span>
+        <span class="font-mono text-[11px] text-slate-500">Autonomous Quant Super-Ensemble</span>
+      </div>
+      <div class="text-[11px] text-slate-400 font-mono">
+        &copy; 2026 Forex AI Platform. Built with Velotrade FinTech Standards.
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    const form = document.getElementById('loginForm');
+    const submitBtn = document.getElementById('submitBtn');
+    const btnText = document.getElementById('btnText');
+    const btnSpinner = document.getElementById('btnSpinner');
+    const errorBanner = document.getElementById('errorBanner');
+    const errorMessage = document.getElementById('errorMessage');
+    const successBanner = document.getElementById('successBanner');
+    const passwordInput = document.getElementById('password');
+    const togglePasswordBtn = document.getElementById('togglePasswordBtn');
+    const eyeIcon = document.getElementById('eyeIcon');
+    const eyeOffIcon = document.getElementById('eyeOffIcon');
+
+    // Toggle password visibility
+    if (togglePasswordBtn) {
+      togglePasswordBtn.addEventListener('click', () => {
+        const isPassword = passwordInput.getAttribute('type') === 'password';
+        passwordInput.setAttribute('type', isPassword ? 'text' : 'password');
+        eyeIcon.classList.toggle('hidden', isPassword);
+        eyeOffIcon.classList.toggle('hidden', !isPassword);
+      });
+    }
+
+    // Parse URL params for messages or next redirect
+    const urlParams = new URLSearchParams(window.location.search);
+    const nextUrl = urlParams.get('next') || '/dashboard';
+    if (urlParams.get('registered') === '1') {
+      successBanner.classList.remove('hidden');
+      document.getElementById('successMessage').textContent = 'Account created successfully! Please sign in.';
+    }
+
+    form.addEventListener('submit', async (e) => {
+      e.preventDefault();
+      errorBanner.classList.add('hidden');
+      successBanner.classList.add('hidden');
+
+      const email = document.getElementById('email').value.trim();
+      const password = document.getElementById('password').value;
+
+      if (!email || !password) {
+        showError('Please enter both email and password.');
+        return;
+      }
+
+      setLoading(true);
+
+      try {
+        const resp = await fetch('/api/auth/login', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ email, password })
+        });
+
+        const data = await resp.json();
+
+        if (resp.ok && data.success) {
+          successBanner.classList.remove('hidden');
+          document.getElementById('successMessage').textContent = 'Clearance verified. Launching terminal...';
+          setTimeout(() => {
+            window.location.href = nextUrl;
+          }, 600);
+        } else {
+          showError(data.error || 'Authentication failed. Please check your credentials.');
+          setLoading(false);
+        }
+      } catch (err) {
+        showError('Network communication error: ' + err.message);
+        setLoading(false);
+      }
+    });
+
+    function showError(msg) {
+      errorMessage.textContent = msg;
+      errorBanner.classList.remove('hidden');
+    }
+
+    function setLoading(isLoading) {
+      submitBtn.disabled = isLoading;
+      if (isLoading) {
+        btnText.textContent = 'Verifying Clearance...';
+        btnSpinner.classList.remove('hidden');
+        submitBtn.classList.add('opacity-75', 'cursor-not-allowed');
+      } else {
+        btnText.textContent = 'Sign In to Terminal';
+        btnSpinner.classList.add('hidden');
+        submitBtn.classList.remove('opacity-75', 'cursor-not-allowed');
+      }
+    }
+  </script>
+</body>
+</html>
