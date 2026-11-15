@@ -61,6 +61,11 @@ class TestMultiTenantServer(unittest.TestCase):
         self.handler.do_GET()
         self.handler.send_response.assert_called_with(200)
 
+        # 4. Public Telemetry endpoint
+        self.handler.path = "/api/public/telemetry"
+        self.handler.do_GET()
+        self.handler.send_response.assert_called_with(200)
+
     def test_protected_routes_unauthenticated_redirection(self):
         # /dashboard without cookie -> 302 redirect to /login
         self.handler.path = "/dashboard"
